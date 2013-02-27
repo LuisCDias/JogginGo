@@ -606,3 +606,1355 @@ Connecting to database specified by database.yml
   [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example..com') LIMIT 1
   [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
   [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (8.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user2@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user3@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('') LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36mSQL (16.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 27 Feb 2013 21:08:53 UTC +00:00], ["email", "user@example.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:08:53 UTC +00:00], ["username", "somethingdifferent"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 27 Feb 2013 21:08:53 UTC +00:00], ["email", "user@example.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:08:53 UTC +00:00], ["username", "somethingdifferent"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('USER@EXAMPLE.COM') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user2example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example..com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('aaaaaaaaaaaaaaaaaaaaa') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 27 Feb 2013 21:08:54 UTC +00:00], ["email", "something@different.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:08:54 UTC +00:00], ["username", "exampleuser"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 27 Feb 2013 21:08:54 UTC +00:00], ["email", "something@different.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:08:54 UTC +00:00], ["username", "exampleuser"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('EXAMPLEUSER') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/signup" for 127.0.0.1 at 2013-02-27 21:14:17 +0000
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 182ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/signup" for 127.0.0.1 at 2013-02-27 21:14:18 +0000
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 0ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user2@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user3@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36mSQL (12.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 27 Feb 2013 21:14:18 UTC +00:00], ["email", "user@example.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:14:18 UTC +00:00], ["username", "somethingdifferent"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 27 Feb 2013 21:14:18 UTC +00:00], ["email", "user@example.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:14:18 UTC +00:00], ["username", "somethingdifferent"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('USER@EXAMPLE.COM') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user2example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example..com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('aaaaaaaaaaaaaaaaaaaaa') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 27 Feb 2013 21:14:18 UTC +00:00], ["email", "something@different.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:14:18 UTC +00:00], ["username", "exampleuser"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 27 Feb 2013 21:14:18 UTC +00:00], ["email", "something@different.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:14:18 UTC +00:00], ["username", "exampleuser"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('EXAMPLEUSER') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (2.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+Started GET "/signup" for 127.0.0.1 at 2013-02-27 21:16:03 +0000
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 189ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/signup" for 127.0.0.1 at 2013-02-27 21:16:03 +0000
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 0ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36mSQL (13.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 27 Feb 2013 21:16:04 UTC +00:00], ["email", "user@example.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:16:04 UTC +00:00], ["username", "somethingdifferent"]]
+  [1m[35m (1.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 27 Feb 2013 21:16:04 UTC +00:00], ["email", "user@example.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:16:04 UTC +00:00], ["username", "somethingdifferent"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('USER@EXAMPLE.COM') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (2.0ms)[0m  rollback transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 27 Feb 2013 21:16:04 UTC +00:00], ["email", "something@different.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:16:04 UTC +00:00], ["username", "exampleuser"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 27 Feb 2013 21:16:04 UTC +00:00], ["email", "something@different.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:16:04 UTC +00:00], ["username", "exampleuser"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('EXAMPLEUSER') LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (2.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user2example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example..com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example.com') LIMIT 1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user2@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user3@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('aaaaaaaaaaaaaaaaaaaaa') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36mSQL (11.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 27 Feb 2013 21:16:31 UTC +00:00], ["email", "user@example.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:16:31 UTC +00:00], ["username", "somethingdifferent"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 27 Feb 2013 21:16:31 UTC +00:00], ["email", "user@example.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:16:31 UTC +00:00], ["username", "somethingdifferent"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('USER@EXAMPLE.COM') LIMIT 1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 27 Feb 2013 21:16:31 UTC +00:00], ["email", "something@different.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:16:31 UTC +00:00], ["username", "exampleuser"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 27 Feb 2013 21:16:31 UTC +00:00], ["email", "something@different.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:16:31 UTC +00:00], ["username", "exampleuser"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('EXAMPLEUSER') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user2@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user3@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('aaaaaaaaaaaaaaaaaaaaa') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user2example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example..com') LIMIT 1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/signup" for 127.0.0.1 at 2013-02-27 21:16:31 +0000
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 179ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/signup" for 127.0.0.1 at 2013-02-27 21:16:31 +0000
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 0ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+Started GET "/signup" for 127.0.0.1 at 2013-02-27 21:16:59 +0000
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 193ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/signup" for 127.0.0.1 at 2013-02-27 21:16:59 +0000
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 1ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user2@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user3@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36mSQL (13.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 27 Feb 2013 21:16:59 UTC +00:00], ["email", "user@example.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:16:59 UTC +00:00], ["username", "somethingdifferent"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 27 Feb 2013 21:16:59 UTC +00:00], ["email", "user@example.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:16:59 UTC +00:00], ["username", "somethingdifferent"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('USER@EXAMPLE.COM') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (2.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 27 Feb 2013 21:16:59 UTC +00:00], ["email", "something@different.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:16:59 UTC +00:00], ["username", "exampleuser"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 27 Feb 2013 21:17:00 UTC +00:00], ["email", "something@different.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:17:00 UTC +00:00], ["username", "exampleuser"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('EXAMPLEUSER') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (2.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user2example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example..com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('aaaaaaaaaaaaaaaaaaaaa') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('aaaaaaaaaaaaaaaaaaaaa') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user2@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user3@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36mSQL (14.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 27 Feb 2013 21:18:24 UTC +00:00], ["email", "user@example.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:18:24 UTC +00:00], ["username", "somethingdifferent"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (26.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 27 Feb 2013 21:18:24 UTC +00:00], ["email", "user@example.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:18:24 UTC +00:00], ["username", "somethingdifferent"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('USER@EXAMPLE.COM') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user2example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example..com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 27 Feb 2013 21:18:24 UTC +00:00], ["email", "something@different.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:18:24 UTC +00:00], ["username", "exampleuser"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 27 Feb 2013 21:18:24 UTC +00:00], ["email", "something@different.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:18:24 UTC +00:00], ["username", "exampleuser"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('EXAMPLEUSER') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/signup" for 127.0.0.1 at 2013-02-27 21:18:24 +0000
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 198ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/signup" for 127.0.0.1 at 2013-02-27 21:18:24 +0000
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 0ms
+  [1m[35m (1.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36mSQL (13.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 27 Feb 2013 21:21:35 UTC +00:00], ["email", "user@example.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:21:35 UTC +00:00], ["username", "somethingdifferent"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 27 Feb 2013 21:21:35 UTC +00:00], ["email", "user@example.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:21:35 UTC +00:00], ["username", "somethingdifferent"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('USER@EXAMPLE.COM') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (2.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 27 Feb 2013 21:21:35 UTC +00:00], ["email", "something@different.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:21:35 UTC +00:00], ["username", "exampleuser"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 27 Feb 2013 21:21:35 UTC +00:00], ["email", "something@different.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:21:35 UTC +00:00], ["username", "exampleuser"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('EXAMPLEUSER') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('aaaaaaaaaaaaaaaaaaaaa') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user2@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user3@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user2example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example..com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/signup" for 127.0.0.1 at 2013-02-27 21:21:35 +0000
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (32.0ms)
+Completed 200 OK in 166ms (Views: 166.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/signup" for 127.0.0.1 at 2013-02-27 21:21:35 +0000
+Processing by UsersController#new as HTML
+Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user2example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example..com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36mSQL (11.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 27 Feb 2013 21:25:47 UTC +00:00], ["email", "user@example.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:25:47 UTC +00:00], ["username", "somethingdifferent"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 27 Feb 2013 21:25:47 UTC +00:00], ["email", "user@example.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:25:47 UTC +00:00], ["username", "somethingdifferent"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('USER@EXAMPLE.COM') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('aaaaaaaaaaaaaaaaaaaaa') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user2@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user3@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 27 Feb 2013 21:25:47 UTC +00:00], ["email", "something@different.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:25:47 UTC +00:00], ["username", "exampleuser"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 27 Feb 2013 21:25:47 UTC +00:00], ["email", "something@different.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:25:47 UTC +00:00], ["username", "exampleuser"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('EXAMPLEUSER') LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (2.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/signup" for 127.0.0.1 at 2013-02-27 21:25:47 +0000
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (87.0ms)
+Completed 500 Internal Server Error in 207ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+Started GET "/signup" for 127.0.0.1 at 2013-02-27 21:25:48 +0000
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 3ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example') LIMIT 1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user2example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example..com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('aaaaaaaaaaaaaaaaaaaaa') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36mSQL (12.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 27 Feb 2013 21:26:16 UTC +00:00], ["email", "user@example.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:26:16 UTC +00:00], ["username", "somethingdifferent"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 27 Feb 2013 21:26:16 UTC +00:00], ["email", "user@example.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:26:16 UTC +00:00], ["username", "somethingdifferent"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('USER@EXAMPLE.COM') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (2.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user2@example.com') LIMIT 1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user3@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 27 Feb 2013 21:26:16 UTC +00:00], ["email", "something@different.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:26:16 UTC +00:00], ["username", "exampleuser"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 27 Feb 2013 21:26:16 UTC +00:00], ["email", "something@different.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 21:26:16 UTC +00:00], ["username", "exampleuser"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('EXAMPLEUSER') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/signup" for 127.0.0.1 at 2013-02-27 21:26:16 +0000
+Processing by UsersController#new as HTML
+  Rendered users/new.html.erb within layouts/application (82.0ms)
+Completed 500 Internal Server Error in 204ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/signup" for 127.0.0.1 at 2013-02-27 21:26:16 +0000
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 3ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user2@example.com') LIMIT 1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user3@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('aaaaaaaaaaaaaaaaaaaaa') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36mSQL (19.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 27 Feb 2013 22:14:40 UTC +00:00], ["email", "something@different.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 22:14:40 UTC +00:00], ["username", "exampleuser"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 27 Feb 2013 22:14:40 UTC +00:00], ["email", "something@different.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 22:14:40 UTC +00:00], ["username", "exampleuser"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('EXAMPLEUSER') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["created_at", Wed, 27 Feb 2013 22:14:40 UTC +00:00], ["email", "user@example.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 22:14:40 UTC +00:00], ["username", "somethingdifferent"]]
+  [1m[35m (0.0ms)[0m  RELEASE SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (2.0ms)[0m  [1mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "users" ("created_at", "email", "name", "password_digest", "remember_token", "updated_at", "username") VALUES (?, ?, ?, ?, ?, ?, ?)  [["created_at", Wed, 27 Feb 2013 22:14:40 UTC +00:00], ["email", "user@example.com"], ["name", "Example User"], ["password_digest", nil], ["remember_token", nil], ["updated_at", Wed, 27 Feb 2013 22:14:40 UTC +00:00], ["username", "somethingdifferent"]]
+  [1m[36m (0.0ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (20.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('USER@EXAMPLE.COM') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (2.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example') LIMIT 1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user2example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example..com') LIMIT 1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example.com') LIMIT 1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('EXAMPLEUSER') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('USER@EXAMPLE.COM') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('aaaaaaaaaaaaaaaaaaaaa') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user2example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example..com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('EXAMPLEUSER') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('aaaaaaaaaaaaaaaaaaaaa') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('') LIMIT 1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('USER@EXAMPLE.COM') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user2example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example..com') LIMIT 1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('EXAMPLEUSER') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('aaaaaaaaaaaaaaaaaaaaa') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('USER@EXAMPLE.COM') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user2example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example..com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user2example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example..com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user1@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('aaaaaaaaaaaaaaaaaaaaa') LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('USER@EXAMPLE.COM') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('somethingdifferent') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('something@different.com') LIMIT 1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('EXAMPLEUSER') LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mUser Exists (0.0ms)[0m  SELECT 1 AS one FROM "users" WHERE LOWER("users"."email") = LOWER('user@example.com') LIMIT 1
+  [1m[36mUser Exists (0.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER('exampleuser') LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/signup" for 127.0.0.1 at 2013-02-27 22:18:44 +0000
+Processing by UsersController#new as HTML
+  Rendered users/_signup_form.html.erb (3.0ms)
+  Rendered users/new.html.erb within layouts/application (70.0ms)
+Completed 500 Internal Server Error in 286ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/signup" for 127.0.0.1 at 2013-02-27 22:18:44 +0000
+Processing by UsersController#new as HTML
+  Rendered users/_signup_form.html.erb (2.0ms)
+Completed 500 Internal Server Error in 4ms
+  [1m[35m (0.0ms)[0m  rollback transaction
+Connecting to database specified by database.yml
+Connecting to database specified by database.yml
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/signup" for 127.0.0.1 at 2013-02-27 22:47:37 +0000
+Processing by UsersController#new as HTML
+  Rendered users/_signup_form.html.erb (3.0ms)
+  Rendered users/new.html.erb within layouts/application (87.0ms)
+  Rendered home/_header.html.erb (0.0ms)
+  Rendered home/_footer.html.erb (0.0ms)
+Completed 200 OK in 243ms (Views: 209.0ms | ActiveRecord: 26.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/signup" for 127.0.0.1 at 2013-02-27 22:47:37 +0000
+Processing by UsersController#new as HTML
+  Rendered users/_signup_form.html.erb (1.0ms)
+  Rendered home/_header.html.erb (1.0ms)
+  Rendered home/_footer.html.erb (0.0ms)
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/signup" for 127.0.0.1 at 2013-02-27 22:47:37 +0000
+Processing by UsersController#new as HTML
+  Rendered users/_signup_form.html.erb (2.0ms)
+  Rendered home/_header.html.erb (0.0ms)
+  Rendered home/_footer.html.erb (0.0ms)
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.0ms)[0m  rollback transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+Started GET "/signup" for 127.0.0.1 at 2013-02-27 22:47:37 +0000
+Processing by UsersController#new as HTML
+  Rendered users/_signup_form.html.erb (2.0ms)
+  Rendered home/_header.html.erb (0.0ms)
+  Rendered home/_footer.html.erb (0.0ms)
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "users" 
+  [1m[36m (0.0ms)[0m  [1mrollback transaction[0m

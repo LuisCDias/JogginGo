@@ -80,26 +80,28 @@ body {
 }
 
 .carousel .item {
-  height: 500px;
+  height: 520px;
 }
 .carousel img {
   position: absolute;
   top: 0;
   left: 0;
   min-width: 100%;
-  height: 500px;
+  height: 520px;
 }
 
 .carousel-caption {
   background-color: transparent;
   position: static;
-  max-width: 550px;
+  float: right;
+  max-width: 500px;
   padding: 0 20px;
-  margin-top: 200px;
+  margin-top: 100px;
 }
 .carousel-caption h1,
 .carousel-caption .lead {
   margin: 0;
+  margin-bottom: 20px;
   line-height: 1.25;
   color: #fff;
   text-shadow: 0 1px 1px rgba(0,0,0,.4);
@@ -109,6 +111,14 @@ body {
 }
 
 
+/* Custom container */
+.container {
+  margin: 0 auto;
+  max-width: 1000px;
+}
+.container > hr {
+  margin: 60px 0;
+}
 
 /* MARKETING CONTENT
 -------------------------------------------------- */
