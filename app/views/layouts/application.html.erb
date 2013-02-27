@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Title</title>
+    <title>JogginGo! - Your jogging platform</title>
     
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
@@ -22,5 +22,24 @@
         })
     }(window.jQuery)
     </script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function (){
+        $("#limit_button").click(function (){
+            //$(this).animate(function(){
+                $('html, body').animate({
+                    scrollTop: $("#limit").offset().top
+                     }, 2000);
+            //});
+        });
+	$("#to_top").click(function (){
+            //$(this).animate(function(){
+                $('html, body').animate({
+                    scrollTop: $("#top").offset().top
+                     }, 2000);
+            //});
+        });
+    });
+</script>
   </body>
 </html>
