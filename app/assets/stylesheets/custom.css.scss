@@ -93,11 +93,29 @@ body {
 .carousel-caption {
   background-color: transparent;
   position: static;
+  max-width: 500px;
+  padding: 0 20px;
+  margin-top: 200px;
+}
+
+.carousel-caption-form {
+  background-color: transparent;
+  position: static;
   float: right;
   max-width: 500px;
   padding: 0 20px;
   margin-top: 100px;
 }
+
+.carousel-caption-form h1,
+.carousel-caption-form .lead {
+  margin: 0;
+  margin-bottom: 20px;
+  line-height: 1.25;
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0,0,0,.4);
+}
+
 .carousel-caption h1,
 .carousel-caption .lead {
   margin: 0;
