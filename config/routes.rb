@@ -17,7 +17,9 @@ Joggingo::Application.routes.draw do
   
   root :to => "home#index"
 
-  match '/signup', to: 'users#new'
+  #match '/signup', to: 'users#new'
+  match 'signup' => 'users#new', :as => :signup, :via => 'get'
+  match 'signup' => 'users#create', :as => :signup, :via => 'post'
   # Sample resource route with options:
   #   resources :products do
   #     member do

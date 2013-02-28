@@ -2,7 +2,7 @@ module ApplicationHelper
 
 	def titulo(titulo)
 		if titulo.nil?
-			titulo="JoggingGo! Your jogging track"
+			titulo="JogginGo! Your jogging track"
 		else
 			titulo
 		end
@@ -19,6 +19,11 @@ module ApplicationHelper
 		def field_errors(field, user)
 			@content = ""
 			case field
+			when :username
+			if user.errors[:username].any?
+				@content = "Username "
+				field_errors_messages(user, :username)
+			end
 			when :name
 				if user.errors[:name].any?
 					@content = "Name "

@@ -14,8 +14,11 @@
 
     <body>
      <%= render 'home/header' %>
+     <% flash.each do |key, value|%>
+      <%= content_tag(:div, value, class: "alert alert-#{key}") %>
+     <% end %>
      <%= yield %>
-     <!-- <%= debug(params) if Rails.env.development? %> -->
+     <%= debug(params) if Rails.env.development? %>
      <%= render 'home/footer'%>
 
      <!-- Javascripts nices-->
@@ -30,16 +33,21 @@
     <script>
     $(document).ready(function (){
       $("#limit_button").click(function (){
-              $('html, body').animate({
-                scrollTop: $("#limit").offset().top
-              }, 2000);
-    });
+        $('html, body').animate({
+          scrollTop: $("#limit").offset().top
+        }, 1000);
+      });
       $("#to_top").click(function (){
-              $('html, body').animate({
-                scrollTop: $("#top").offset().top
-              }, 2000);
+        $('html, body').animate({
+          scrollTop: $("#top").offset().top
+        }, 1000);
+      });
     });
-    });
+    </script>
+     <script> 
+    jQuery(document).ready(function($) {
+      $(":input[placeholder]").placeholder();
+    });    
     </script>
   </body>
   </html>

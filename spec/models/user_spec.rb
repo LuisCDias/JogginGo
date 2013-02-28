@@ -4,7 +4,7 @@ describe User do
 
 	before do
 		@user = User.new(name: "Example User", email: "user@example.com",
-			username: "exampleuser")
+			username: "exampleuser", password: "foobar", password_confirmation: "foobar")
 	end
 
 	subject { @user }
@@ -28,6 +28,11 @@ describe User do
 
 		it "should validate username presence" do
 			@user.username = ""
+			should_not be_valid
+		end
+
+		it "should validate password presence" do
+			@user.password = ""
 			should_not be_valid
 		end
 	end

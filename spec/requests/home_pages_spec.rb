@@ -1,11 +1,18 @@
 require 'spec_helper'
 
 describe "HomePages" do
-  describe "GET /home_pages" do
-    it "works! (now write some real specs)" do
-      # Run the generator again with the --webrat flag if you want to use webrat methods/matchers
-      get home_pages_path
-      response.status.should be(200)
-    end
+  
+  subject {page}
+
+  describe "navigation bar links" do
+  	
+  	before do
+      visit root_path
+  		click_link "JogginGo!"  
+  	end
+
+  	it "should have title with 'JogginGo'" do
+  		should have_selector('title', text: "JogginGo!")
+  	end
   end
 end

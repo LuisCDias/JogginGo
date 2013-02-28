@@ -1,23 +1,24 @@
-<%= form_for(@user, :html => { :class => "form-signin center"}) do |f| %>
+<%= form_for(@user, url: signup_path, :html => { :class => "form-signin" }) do |f| %>
 
+	<%= div_with_errors(:username, @user) %>
 	<%= f.text_field :username, 
 	:placeholder => "Your username", :class => "input-block-level" %>
-	<%#= div_with_errors(:name, @user) %>
+	<%= div_with_errors(:name, @user) %>
 	<%= f.text_field :name, 
 	:placeholder => "Your full name", :class => "input-block-level" %>
 
-	<%#= div_with_errors(:email, @user) %>
+	<%= div_with_errors(:email, @user) %>
 	<%= f.text_field :email,
 	:placeholder => "Your email",:class => "input-block-level"%>
 
-	<%#= div_with_errors(:password, @user) %>
+	<%= div_with_errors(:password, @user) %>
 	<%= f.password_field :password,
 	:placeholder => "Your password (minimum 6 chars)",
 	:class => "input-block-level"%>
 
-	<%#= div_with_errors(:password_confirmation, @user) %>
+	<%= div_with_errors(:password_confirmation, @user) %>
 	<%= f.password_field :password_confirmation,
 	:placeholder => "Confirm your password",:class => "input-block-level"%>
 
-	<%= f.submit 'Sign up now!', :class => 'btn btn-large btn-primary'%>
+	<%= f.submit 'Signup!', :class => 'btn btn-large btn-primary'%>
 <% end %>
