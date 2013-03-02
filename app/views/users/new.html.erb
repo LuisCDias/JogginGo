@@ -1,8 +1,7 @@
 <div class="container">
-	<div class="signup-form">
-		<h1>
+		<h1 class="center">
 			Signup now!
 		</h1>
-		<%= render 'signup_form' %>
-	</div>
+		<% @estilo = 'form-signin' %>
+		<%= render 'signup_form', estilo: @estilo %>
 </div>
