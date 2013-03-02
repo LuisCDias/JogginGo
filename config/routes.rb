@@ -13,11 +13,13 @@ Joggingo::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-
+  
+  resources :tracks
   resources :users
   resources :session, :only => [:new, :create, :destroy]
   
   root :to => "home#index"
+
 
   #match '/signup', to: 'users#new'
   match 'signup' => 'users#new', :as => :signup, :via => 'get'
