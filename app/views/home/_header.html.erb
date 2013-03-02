@@ -29,7 +29,13 @@
             </ul>
           </li>
         </ul>
+        <%= form_for(:session, url: signin_path, :html => { :class => "navbar-form pull-right" }) do |f| %>
+        <%= f.text_field :email, :placeholder => "Email",:class => "span2"%>
+        <%= f.password_field :password, :placeholder => "Password", :class => "span2"%>
+        <%= f.submit 'Sign in', :class => 'btn'%>
+        <% end %>
       </div><!--/.nav-collapse -->
     </div><!-- /.navbar-inner -->
   </div><!-- /.navbar -->
 </div> <!-- /.container -->
+

@@ -1,4 +1,5 @@
 Joggingo::Application.routes.draw do
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -14,12 +15,16 @@ Joggingo::Application.routes.draw do
   #   resources :products
 
   resources :users
+  resources :session, :only => [:new, :create, :destroy]
   
   root :to => "home#index"
 
   #match '/signup', to: 'users#new'
   match 'signup' => 'users#new', :as => :signup, :via => 'get'
   match 'signup' => 'users#create', :as => :signup, :via => 'post'
+
+  match 'signin' => 'sessions#new', :as => :signin, :via => 'get'
+  match 'signin' => 'sessions#create', :as => :signin, :via => 'post'
   # Sample resource route with options:
   #   resources :products do
   #     member do

@@ -40,7 +40,7 @@ describe "UserPages" do
 				it "should send a flash message with error" do
 					click_button "Signup!"
 					should have_selector('div.alert.alert-error',
-										 :text => "Your signup has errors!")
+										 :text => "Please correct your information!")
 				end
 			end
 
@@ -88,6 +88,14 @@ describe "UserPages" do
 
 			it "should have h1 with 'perfil'" do
 				should have_selector('h1', text: "Perfil de #{@user.username}")
+			end
+
+			it "should have gravatar" do
+				should have_selector('img', :class => "gravatar")
+			end
+
+			it "should have a map" do
+				should have_selector('div.map')
 			end
 		end
 	end

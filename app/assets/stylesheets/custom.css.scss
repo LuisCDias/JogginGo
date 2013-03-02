@@ -7,6 +7,7 @@
 
 body {
   padding-bottom: 40px;
+  padding-top: 50px;
   color: #5a5a5a;
 }
 
@@ -277,10 +278,14 @@ body {
   &:hover {
     color: white;
     text-decoration: none;
-    background-color: #303030;
+    background-color: #404040;
   }
 }
 
+h1{
+
+  margin-top: 30px;
+}
 .center {
   text-align: center; 
 }
@@ -318,4 +323,36 @@ h1.center {
   height: auto;
   margin-bottom: 15px;
   padding: 7px 9px;
+}
+
+.map{
+ // margin-left:auto;
+//margin-right:auto;
+  margin-top: 20px;
+  height: 570px;
+  width: 570px;
+}
+
+.profile{
+
+  h2{
+    font-size: 1.7em;
+    letter-spacing: -1px;
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: normal;
+    color: $grayLight;
+  }
+  .times{
+    margin-top:60px;
+  }
+}
+
+/* homepage login */
+
+.navbar-form{
+  padding-top: 4px;
+}
+.short{
+    width: 50%;
 }

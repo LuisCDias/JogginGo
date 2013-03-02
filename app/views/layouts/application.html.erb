@@ -13,44 +13,47 @@
     </head>
 
     <body>
-     <%= render 'home/header' %>
+      <%= render 'home/header' %>
 
-     <% flash.each do |key, value|%>
+      <% flash.each do |key, value|%>
       <%= content_tag(:div, value, class: "alert alert-#{key}") %>
-     <% end %>
-     <%= yield %>
-     <div class="container">
-     <%= debug(params) if Rails.env.development? %>
-     <%= render 'home/footer'%>
-     </div>
+      <% end %>
+      <%= yield %>
+      <div class="container">
+        <%= debug(params) if Rails.env.development? %>
+        <%= render 'home/footer'%>
+      </div>
 
-     <!-- Javascripts nices-->
-     <script>
-     !function ($) {
-      $(function(){
+
+
+
+      <!-- Javascripts nices-->
+      <script>
+      !function ($) {
+        $(function(){
           // carousel demo
           $('#myCarousel').carousel()
         })
-    }(window.jQuery)
-    </script>
-    <script>
-    $(document).ready(function (){
-      $("#limit_button").click(function (){
-        $('html, body').animate({
-          scrollTop: $("#limit").offset().top
-        }, 1000);
+      }(window.jQuery)
+      </script>
+      <script>
+      $(document).ready(function (){
+        $("#limit_button").click(function (){
+          $('html, body').animate({
+            scrollTop: $("#limit").offset().top
+          }, 1000);
+        });
+        $("#to_top").click(function (){
+          $('html, body').animate({
+            scrollTop: $("#top").offset().top
+          }, 1000);
+        });
       });
-      $("#to_top").click(function (){
-        $('html, body').animate({
-          scrollTop: $("#top").offset().top
-        }, 1000);
-      });
-    });
-    </script>
-     <script> 
-    jQuery(document).ready(function($) {
-      $(":input[placeholder]").placeholder();
-    });    
-    </script>
-  </body>
-  </html>
+      </script>
+      <script> 
+      jQuery(document).ready(function($) {
+        $(":input[placeholder]").placeholder();
+      });    
+      </script>
+    </body>
+    </html>

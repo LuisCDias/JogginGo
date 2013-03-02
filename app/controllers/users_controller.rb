@@ -17,7 +17,7 @@ class UsersController < ApplicationController
 			redirect_to @user
 		else
 			@title = "Signup"
-			flash.now[:error] = "Your signup has errors!"
+			flash.now[:error] = "Please correct your information!"
 			render "new"
 		end
 	end
