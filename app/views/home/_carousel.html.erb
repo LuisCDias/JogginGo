@@ -1,0 +1,32 @@
+  <!-- Carousel
+  ================================================== -->
+  <div id="myCarousel" class="carousel slide">
+    <div class="carousel-inner">
+      <div class="item active">
+        <%= image_tag('slide-01.jpg', alt: "JogginGo") %>
+        <div class="container">
+          <div class="carousel-caption-form">
+            <h1>Signup now!</h1>
+            <p class="lead">JogginGo! is a platform where you can track your own runnings, as well as joggings around you.
+              <% @estilo = "nil" %>
+              <%= render 'users/signup_form', estilo: @estilo %>
+            </p>
+          </div>
+        </div>
+      </div>
+    
+    <div class="item">
+	<%= image_tag('slide-01.jpg', alt: "JogginGo") %>
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>Test your limits!</h1>
+              <p class="lead">Are your prepared? Do you want to take you to the limit? Try one of ours jogging tracks and show everybody you are the best of your city.</p>
+              <a class="btn btn-large btn-primary" id="limit_button">Learn more</a>
+            </div>
+          </div>
+    </div>
+   </div>
+  </div>
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div><!-- /.carousel -->
