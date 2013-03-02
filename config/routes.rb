@@ -1,4 +1,7 @@
 Joggingo::Application.routes.draw do
+  resources :tracks
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -16,6 +19,7 @@ Joggingo::Application.routes.draw do
   resources :users
   
   root :to => "home#index"
+
 
   #match '/signup', to: 'users#new'
   match 'signup' => 'users#new', :as => :signup, :via => 'get'

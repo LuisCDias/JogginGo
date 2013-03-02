@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130226160717) do
+ActiveRecord::Schema.define(:version => 20130302182533) do
+
+  create_table "tracks", :force => true do |t|
+    t.string   "name"
+    t.string   "city"
+    t.string   "country"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.boolean  "private"
+    t.boolean  "approved"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email"
