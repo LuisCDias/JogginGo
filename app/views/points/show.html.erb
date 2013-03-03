@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>N:</b>
+  <%= @point.N %>
+</p>
+
+<p>
+  <b>W:</b>
+  <%= @point.W %>
+</p>
+
+<p>
+  <b>Track:</b>
+  <%= @point.track_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_point_path(@point) %> |
+<%= link_to 'Back', points_path %>
