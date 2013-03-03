@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
 		@title = @user.username
+		@tracks = Track.find_all_by_user_id(params[:id])
 	end
 
 	def new
