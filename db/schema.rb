@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130303143633) do
+ActiveRecord::Schema.define(:version => 20130303153251) do
+
+  create_table "points", :force => true do |t|
+    t.float    "latitude"
+    t.float    "longitude"
+    t.integer  "track_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "timings", :force => true do |t|
     t.datetime "initial_time"
