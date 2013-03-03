@@ -1,0 +1,33 @@
+<%= form_for(@timing) do |f| %>
+  <% if @timing.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@timing.errors.count, "error") %> prohibited this timing from being saved:</h2>
+
+      <ul>
+      <% @timing.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :initial_time %><br />
+    <%= f.datetime_select :initial_time %>
+  </div>
+  <div class="field">
+    <%= f.label :final_time %><br />
+    <%= f.datetime_select :final_time %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br />
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :track_id %><br />
+    <%= f.number_field :track_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

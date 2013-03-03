@@ -17,6 +17,7 @@ class User < ActiveRecord::Base
   has_secure_password
   
   has_many :tracks
+  has_many :timings
   before_save { |user| user.email.downcase }
 
   validates :name, presence: true, :length => {maximum: 40}

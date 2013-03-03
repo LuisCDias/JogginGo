@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Initial time:</b>
+  <%= @timing.initial_time %>
+</p>
+
+<p>
+  <b>Final time:</b>
+  <%= @timing.final_time %>
+</p>
+
+<p>
+  <b>Global time:</b>
+  <%= @timing.global_time %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @timing.user_id %>
+</p>
+
+<p>
+  <b>Track:</b>
+  <%= @timing.track_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_timing_path(@timing) %> |
+<%= link_to 'Back', timings_path %>

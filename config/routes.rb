@@ -1,5 +1,8 @@
 Joggingo::Application.routes.draw do
 
+  resources :timings
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

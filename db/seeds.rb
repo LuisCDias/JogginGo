@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+u = User.create(:email=>"lfcgomes@gmail.com", :name=>"luis gomes", :username=>"lfcgomes", :password_digest=>"sdasdasd")
+u.save
+t = Track.create(:name=>"Trilho lindo", :city=>"Porto", :country=>"Portugal", :user_id=>1)
+t.save
+

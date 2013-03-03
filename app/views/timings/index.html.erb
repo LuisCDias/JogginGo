@@ -1,0 +1,31 @@
+<h1>Listing timings</h1>
+
+<table>
+  <tr>
+    <th>Initial time</th>
+    <th>Final time</th>
+    <th>Global time</th>
+    <th>User</th>
+    <th>Track</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @timings.each do |timing| %>
+  <tr>
+    <td><%= timing.initial_time %></td>
+    <td><%= timing.final_time %></td>
+    <td><%= timing.global_time %></td>
+    <td><%= timing.user_id %></td>
+    <td><%= timing.track_id %></td>
+    <td><%= link_to 'Show', timing %></td>
+    <td><%= link_to 'Edit', edit_timing_path(timing) %></td>
+    <td><%= link_to 'Destroy', timing, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Timing', new_timing_path %>
