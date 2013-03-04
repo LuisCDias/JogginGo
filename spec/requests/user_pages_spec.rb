@@ -65,6 +65,10 @@ describe "UserPages" do
 					should have_selector('div.alert.alert-success',
 										 :text => "Welcome, username!")
 				end
+
+				it "should be signed in after signing up" do
+					should have_link("username ")
+				end
 			end
 		end
 	end

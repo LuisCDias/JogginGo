@@ -12,11 +12,11 @@ Joggingo::Application.routes.draw do
   #match '/signup', to: 'users#new'
   match 'signup' => 'users#new', :as => :signup, :via => 'get'
   match 'signup' => 'users#create', :as => :signup, :via => 'post'
-
   match 'signin' => 'sessions#new', :as => :signin, :via => 'get'
   match 'signin' => 'sessions#create', :as => :signin, :via => 'post'
-
   match 'signout' => 'sessions#destroy', via: :delete
+
+  match '/profile', to: 'users#show'
   # Sample resource route with options:
   #   resources :products do
   #     member do
