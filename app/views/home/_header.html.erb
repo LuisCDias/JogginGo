@@ -1,4 +1,4 @@
-<div class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top" >
   <div class="navbar-inner">
     <div class="container">
       <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
@@ -12,28 +12,30 @@
       <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
       <div class="nav-collapse collapse">
         <ul class="nav">
-          <li><a href="#">Home</a></li>
+          <li><%= link_to "Home", root_path %></li>
           <li><a href="#about">About</a></li>
           <li><a href="#contact">Contact</a></li>
           <!-- Read about Bootstrap dropdowns at http://twitter.github.com/bootstrap/javascript.html#dropdowns -->
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li class="nav-header">Nav header</li>
-              <li><a href="#">Separated link</a></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li>
         </ul>
-        <%= form_for(:session, url: signin_path, :html => { :class => "navbar-form pull-right" }) do |f| %>
-        <%= f.text_field :email, :placeholder => "Email",:class => "span2"%>
-        <%= f.password_field :password, :placeholder => "Password", :class => "span2"%>
-        <%= f.submit 'Sign in', :class => 'btn'%>
+        <% if !signed_in? %>
+          <%= form_for(:session, url: signin_path, :html => { :class => "navbar-form pull-right" }) do |f| %>
+          <%= f.text_field :email, :placeholder => "Email",:class => "span2"%>
+          <%= f.password_field :password, :placeholder => "Password", :class => "span2"%>
+          <%= f.submit 'Sign in', :class => 'btn'%>
+          <% end %>
+        <% else %>
+          <ul class="nav pull-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.username %> <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to "Profile", current_user %></li>
+                <li class="divider"></li>
+                <li><%= link_to "Signout", signout_path, method: "delete" %></li>
+              </ul>
+            </li>
+          </ul>
         <% end %>
+
       </div><!--/.nav-collapse -->
     </div><!-- /.navbar-inner -->
   </div><!-- /.navbar -->
