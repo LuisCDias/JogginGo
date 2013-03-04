@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
 				sign_in user
 			end
 			flash[:success] = "Welcome, #{user.name}"
-			redirect_to user #session[:return_to] || profile_path
+			redirect_to session[:return_to] || profile_path
 		else
 			flash.now[:error] = "Invalid email/password combination"
 			render 'new'

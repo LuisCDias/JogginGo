@@ -29,7 +29,7 @@ describe "Authentications" do
 
 		it "should show errors" do
 			should have_selector('div.alert.alert-error',
-				:text => "Invalid user/password combination")
+				:text => "Invalid email/password combination")
 		end
 	end
 end
