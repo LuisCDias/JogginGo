@@ -11,6 +11,10 @@
 #
 
 class Point < ActiveRecord::Base
-  attr_accessible :latitude, :longitude, :track_id
+  attr_accessible :latitude, :longitude, :address, :track_id
   belongs_to :track
+
+  reverse_geocoded_by :latitude, :longitude
+  after_validation :reverse_geocode
+
 end
