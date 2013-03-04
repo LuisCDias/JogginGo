@@ -9,7 +9,13 @@
 			<h2> My tracks </h2>
 			<div class="map">
 				<!-- placeholder for now -->
-				<%= image_tag("static_map.png", alt: "mytracks") %>
+				<%= 
+					gmaps({ "direction" => {
+							    "data" => { "from" => @first, "to" => @last},
+					 			"options" => { "travelmode" => "WALKING"},
+						      }
+					      })
+			 %>
 			</div>
 		</div>
 		<div class="span3 times">
