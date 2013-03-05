@@ -83,7 +83,7 @@ describe "UserPages" do
 			end
 
 			it "should have h1" do
-				should have_selector('h1', text: "All members")
+				should have_selector('h1', text: "Members")
 			end
 		end
 	end

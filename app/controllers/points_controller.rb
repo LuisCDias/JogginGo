@@ -1,4 +1,7 @@
 class PointsController < ApplicationController
+  before_filter :authorize, only: [:show, :edit, :update, :index, :new]
+  before_filter :already_signed, only:[:new, :create]
+  # GET /tracks
   # GET /points
   # GET /points.json
   def index
@@ -80,4 +83,20 @@ class PointsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  private
+
+    def authorize
+        if !signed_in?
+          store_location
+          flash[:info] = "Authentication is needed to view this page"
+          redirect_to signin_path
+        end
+      end
+
+    def already_signed
+      if signed_in?
+          #flash[:info] = "You are already logged in. Sign out and try again"
+            redirect_to root_path
+       end
+    end
 end

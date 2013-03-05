@@ -4,6 +4,8 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
+#map label { width: auto; display:inline; }
+#map img { max-width: none; }
 
 body {
   padding-bottom: 40px;
