@@ -6,8 +6,14 @@ class UsersController < ApplicationController
 		@user = !params[:id].nil? ? User.find(params[:id]) : current_user
 		@title = @user.username
 		track = Track.find_all_by_user_id(@user.id).first
-		@first = Point.find_all_by_track_id(track.id).first.address
-                @last = Point.find_all_by_track_id(track.id).last.address
+		all = Point.find_all_by_track_id(track.id)
+		@first = all.first.address
+        @last = all.last.address
+        all.pop
+        all.delete_at(0)
+        @waypoints = all
+
+
 	end
 
 	def new
