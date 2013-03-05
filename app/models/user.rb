@@ -29,7 +29,10 @@ class User < ActiveRecord::Base
   validates :username, presence: true, :length => {maximum: 20},
   				:uniqueness => {case_sensitive: false}
 
-  validates :password, presence: true
+  validates :password, :presence => true, :length => {:minimum => 6}, 
+            :on => :create
+  validates :password_confirmation, :presence => true, 
+            :on => :update, :unless => lambda{|user| user.password.blank?}
 
   private
 

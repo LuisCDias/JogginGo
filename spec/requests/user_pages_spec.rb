@@ -75,15 +75,20 @@ describe "UserPages" do
 
 	describe "that need authentication" do
 		
+		before do
+		  @user = User.create!(name: "Example User", email: "user@example.com",
+									 username: "exampleuser", password: "foobar", 
+									 password_confirmation: "foobar")
+		  visit signin_path
+		  fill_in "session_email",    with: @user.email
+		  fill_in "session_password", with: @user.password
+		  click_button "Sign in"
+		end
+
 		describe "show page" do
 
 			before do
-			  @user = User.new(name: "Example User", email: "user@example.com",
-									 username: "exampleuser", password: "foobar", 
-									 password_confirmation: "foobar")
-
-			  @user.save
-			  visit user_path(@user)
+			  visit profile_path
 			end
 
 			it "should have title with the user name(or username?)" do
@@ -100,6 +105,23 @@ describe "UserPages" do
 
 			it "should have a map" do
 				should have_selector('div.map')
+			end
+		end
+
+		describe 'edit user path' do
+			
+			before do
+				visit settings_path
+			end
+
+			it "should have title 'Settings'" do
+				should have_selector('title',
+											text: "Setings")
+			end
+
+			it "should have h1 with 'Settings" do
+				should have_selector('h1',
+											text: "Settings")
 			end
 		end
 	end

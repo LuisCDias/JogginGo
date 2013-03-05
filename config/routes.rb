@@ -17,6 +17,8 @@ Joggingo::Application.routes.draw do
   match 'signout' => 'sessions#destroy', via: :delete
 
   match '/profile', to: 'users#show'
+  match '/settings', to: 'users#edit'
+  
   # Sample resource route with options:
   #   resources :products do
   #     member do

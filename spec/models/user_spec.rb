@@ -13,7 +13,10 @@ describe User do
 	it { should respond_to(:email) }
 	it { should respond_to(:username)}
 	it { should respond_to(:password_digest) }
+	it { should respond_to(:password) }
+	it { should respond_to(:password_confirmation) }
 	it { should respond_to(:remember_token) }
+	it { should respond_to(:admin) }
 
 	describe 'mandatory fields should not be empty' do
 		

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130304183238) do
+ActiveRecord::Schema.define(:version => 20130305140302) do
 
   create_table "points", :force => true do |t|
     t.float    "latitude"
@@ -49,8 +49,9 @@ ActiveRecord::Schema.define(:version => 20130304183238) do
     t.string   "username"
     t.string   "password_digest"
     t.string   "remember_token"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+    t.boolean  "admin",           :default => false
   end
 
 end
