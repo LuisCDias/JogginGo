@@ -3,12 +3,16 @@ class UsersController < ApplicationController
 	before_filter :signed_user, only: [:edit, :update]
 	before_filter :already_signed, only:[:new, :create]
 
+	def index
+		@users = User.all #substituir por paginate
+	end
+
 	def show
 		@user = !params[:id].nil? ? User.find(params[:id]) : current_user
 		@title = @user.username
-		track = Track.find_all_by_user_id(@user.id).first
-		@first = Point.find_all_by_track_id(track.id).first.address
-		@last = Point.find_all_by_track_id(track.id).last.address
+		#track = Track.find_all_by_user_id(@user.id).first
+		#@first = Point.find_all_by_track_id(track.id).first.address
+		#@last = Point.find_all_by_track_id(track.id).last.address
 	end
 
 	def new

@@ -1,0 +1,31 @@
+<div class="container">
+	<h1 class="center">
+		Settings
+	</h1>
+
+	<%= form_for(@user, :html => { :class => "form-signin center"}) do |f| %>
+	<%= div_with_errors(:username, @user) %>
+	<%= f.text_field :username, 
+	:class => "input-block-level" %>
+
+	<%= div_with_errors(:name, @user) %>
+	<%= f.text_field :name, 
+	:class => "input-block-level" %>
+	
+	<%= div_with_errors(:email, @user) %>
+	<%= f.text_field :email,
+	:class => "input-block-level"%>
+	
+	<%= div_with_errors(:password, @user) %>
+	<%= f.password_field :password,
+	placeholder: "Nova password",
+	:class => "input-block-level"%>
+	
+	<%= div_with_errors(:password_confirmation, @user) %>
+	<%= f.password_field :password_confirmation,
+	placeholder: "Confirma a nova password",
+	:class => "input-block-level"%>
+	
+	<%= f.submit 'Save', :class => 'btn btn-primary'%>
+	<% end %>
+</div>

@@ -71,6 +71,21 @@ describe "UserPages" do
 				end
 			end
 		end
+
+		describe "all users (index) path" do
+			
+			before do
+			  visit users_path
+			end
+
+			it "should have title 'Members' " do
+				should have_selector('title', text: "Members")
+			end
+
+			it "should have h1" do
+				should have_selector('h1', text: "All members")
+			end
+		end
 	end
 
 	describe "that need authentication" do

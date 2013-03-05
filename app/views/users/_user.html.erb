@@ -1,0 +1,18 @@
+<% @users.in_groups_of(2).each do |user_row| %>
+	<div class="row">
+	<% for user in user_row %>
+		<% if !user.nil? %>
+		<div class="span6">
+			<li>
+				<%= link_to gravatar_for(user), user_path(user) %>
+				<%= link_to user.name, user_path(user) %>
+				<% if current_user && current_user.admin? && current_user != user %>
+				  |  <%= link_to "Remover", user, method: :delete,
+				  						confirm: "Tem a certeza?" %>
+				<% end %>
+			</li>
+		</div>
+		<% end %>
+	<% end %>
+	</div>
+<% end %>

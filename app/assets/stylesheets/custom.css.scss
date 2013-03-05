@@ -367,3 +367,29 @@ h1.center {
 .short{
     width: 50%;
 }
+
+/* Users index custom*/
+
+#users{
+
+  .span6:nth-child(odd){
+    margin-left:0px;
+  }
+  .row-fluid{
+    .row{
+      max-width:100%;
+      margin-left:-10px;
+    }
+    .row:nth-child(odd){
+      background: #E6E6E6;
+      margin-top:10px;
+    }
+    .row:nth-child(even){
+      margin-top:10px;
+      margin-bottom:10px; 
+    }
+    a{
+      color:black;
+    }
+  }
+}
