@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 	before_filter :already_signed, only:[:new, :create]
 
 	def index
+		@title = "Members"
 		@users = User.all #substituir por paginate
 	end
 
@@ -12,12 +13,14 @@ class UsersController < ApplicationController
 		@title = @user.username
 
 		track = Track.find_all_by_user_id(@user.id).first
-		all = Point.find_all_by_track_id(track.id)
-		@first = all.first.address
-        @last = all.last.address
-        all.pop
-        all.delete_at(0)
-        @waypoints = all
+		if !track.nil?
+			all = Point.find_all_by_track_id(track.id)
+			@first = all.first.address
+			@last = all.last.address
+			all.pop
+			all.delete_at(0)
+			@waypoints = all
+		end    
 	end
 
 	def new
@@ -59,30 +62,30 @@ class UsersController < ApplicationController
 
 	private
 
-		def authorize
-			if !signed_in?
-				store_location
-				flash[:info] = "Authentication is needed to view this page"
-				redirect_to signin_path
-			end
+	def authorize
+		if !signed_in?
+			store_location
+			flash[:info] = "Authentication is needed to view this page"
+			redirect_to signin_path
 		end
+	end
 
-		def already_signed
-			if signed_in?
+	def already_signed
+		if signed_in?
 	      	#flash[:info] = "You are already logged in. Sign out and try again"
 	      	redirect_to root_path
 	      end
 	   end
 
 	   def signed_user
-	      @user = !params[:id].nil? ? User.find(params[:id]) : current_user
-	      if !current_user?(@user)
-	        redirect_to root_path
-	      end
+	   	@user = !params[:id].nil? ? User.find(params[:id]) : current_user
+	   	if !current_user?(@user)
+	   		redirect_to root_path
+	   	end
 	   end
 
-      def check_new_password
-      	params[:user].delete(:password) if params[:user][:password].blank?
-      	params[:user].delete(:password_confirmation) if params[:user][:password_confirmation].blank?
-      end
-end
+	   def check_new_password
+	   	params[:user].delete(:password) if params[:user][:password].blank?
+	   	params[:user].delete(:password_confirmation) if params[:user][:password_confirmation].blank?
+	   end
+	end

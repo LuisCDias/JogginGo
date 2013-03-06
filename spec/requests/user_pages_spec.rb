@@ -45,7 +45,7 @@ describe "UserPages" do
 			end
 
 			describe 'with valid input' do
-				
+
 				before do
 					fill_in "user_username", with: "username"
 					fill_in "user_name", with: "myname"
@@ -67,7 +67,8 @@ describe "UserPages" do
 				end
 
 				it "should be signed in after signing up" do
-					should have_link("username ")
+					click_button "Signup!"
+					should have_selector('title', text: "username")
 				end
 			end
 		end
@@ -111,7 +112,7 @@ describe "UserPages" do
 			end
 
 			it "should have h1 with 'perfil'" do
-				should have_selector('h1', text: "Perfil de #{@user.username}")
+				should have_selector('h1', text: "#{@user.username}'s profile")
 			end
 
 			it "should have gravatar" do
@@ -131,7 +132,7 @@ describe "UserPages" do
 
 			it "should have title 'Settings'" do
 				should have_selector('title',
-											text: "Setings")
+											text: "Settings")
 			end
 
 			it "should have h1 with 'Settings" do

@@ -9,18 +9,20 @@
 			<h2> My tracks </h2>
 			<div class="map">
 				<!-- placeholder for now -->
-				<% wayp = Array.new
-				@waypoints.each do |way|
-					wayp.push way.address
-				end 
-				%>
+				<% wayp = Array.new %>
+				<% if !@waypoints.nil? %>
+					<% @waypoints.each do |way|
+						wayp.push way.address
+					end 
+					%>
+				<% end %>
 				<%= 
 					gmaps({ "direction" => {
 							    "data" => { "from" => @first,"to" => @last},
 					 			"options" => { "travelMode" => "WALKING", "waypoints" => wayp},
 						      }
 					      })
-			 %>
+			 	%>
 
 			</div>
 		</div>
