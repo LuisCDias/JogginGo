@@ -12,23 +12,17 @@
 				<% wayp = Array.new %>
 				<% if !@waypoints.nil? %>
 					<% @waypoints.each do |way|
-						wayp.push way.address
-					end 
-					%>
+							wayp << way.address
+						end %>
 				<% end %>
-				<%= 
-					gmaps({ "direction" => {
-							    "data" => { "from" => @first,"to" => @last},
-					 			"options" => { "travelMode" => "WALKING", "waypoints" => wayp},
-						      }
-					      })
-			 	%>
-
+				<%= gmaps({ direction: {
+								data: { from: @first, to: @last},
+								options: { travelMode: "WALKING", waypoints: wayp }}
+				})%>
 			</div>
 		</div>
 		<div class="span3 times">
 			<h2> My times <%= @all  %></h2>
 		</div>
 	</div>
-
 </div>

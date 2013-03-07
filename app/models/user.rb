@@ -10,6 +10,7 @@
 #  remember_token  :string(255)
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  admin           :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base
@@ -18,6 +19,7 @@ class User < ActiveRecord::Base
   
   has_many :tracks
   has_many :timings
+  
   before_save { |user| user.email.downcase }
   before_save :create_remember_token
 
@@ -27,7 +29,7 @@ class User < ActiveRecord::Base
   					:uniqueness => {case_sensitive: false}, 
   					:format => {with: VALID_EMAIL_REGEX}
   validates :username, presence: true, :length => {maximum: 20},
-  				:uniqueness => {case_sensitive: false}
+  				  :uniqueness => {case_sensitive: false}
 
   validates :password, :presence => true, :length => {:minimum => 6}, 
             :on => :create
