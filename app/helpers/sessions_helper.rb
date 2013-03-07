@@ -35,4 +35,19 @@ module SessionsHelper
 	def store_location
 		session[:return_to] = request.fullpath
 	end
+
+	def authorize
+		if !signed_in?
+			store_location
+			flash[:info] = "Authentication is needed to view this page"
+			redirect_to signin_path
+		end
+	end
+
+	def already_signed
+		if signed_in?
+	      #flash[:info] = "You are already logged in. Sign out and try again"
+	      redirect_to root_path
+	   end
+ 	end
 end

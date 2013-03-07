@@ -25,10 +25,10 @@
       <% end %>
 
       <%= yield %>
-      <%= yield :scripts %>
       <div class="container">
         <%= debug(params) if Rails.env.development? %>
         <%= render 'home/footer'%>
+        <%= yield :scripts %>
       </div>
 
 

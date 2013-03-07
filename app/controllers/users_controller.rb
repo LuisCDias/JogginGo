@@ -13,9 +13,10 @@ class UsersController < ApplicationController
 		@user = !params[:id].nil? ? User.find(params[:id]) : current_user
 		@title = @user.username
 
-		track = Track.find_all_by_user_id(@user.id).first
+		@tracks = @user.tracks
+		track = params[:track_id].nil? ? @user.tracks.first : Track.find(params[:track_id])
 		if !track.nil?
-			@waypoints = Point.find_all_by_track_id(track.id)
+			@waypoints = track.points
 			@first = @waypoints.shift.address
 			@last = @waypoints.pop.address
 		end 
@@ -64,28 +65,13 @@ class UsersController < ApplicationController
 		redirect_to users_path 
 	end
 
-	private
+	private 
 
 		def administration
 	      if current_user.nil? || !current_user.admin?
 	        redirect_to root_path
 	      end
     	end
-
-		def authorize
-			if !signed_in?
-				store_location
-				flash[:info] = "Authentication is needed to view this page"
-				redirect_to signin_path
-			end
-		end
-
-		def already_signed
-			if signed_in?
-	      	#flash[:info] = "You are already logged in. Sign out and try again"
-	      	redirect_to root_path
-	      end
-	   end
 
 	   def signed_user
 	   	@user = !params[:id].nil? ? User.find(params[:id]) : current_user

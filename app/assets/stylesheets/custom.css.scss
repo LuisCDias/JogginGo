@@ -12,7 +12,14 @@ body {
   padding-top: 50px;
   color: #5a5a5a;
 }
-
+#map-container {
+  width: 800px;
+}
+ 
+#gmaps4rails_map {
+  width: 800px;
+  height: 400px;
+}
 a{
   &#to_top{
     cursor: pointer;
@@ -356,11 +363,21 @@ h1.center {
   h2{
     font-size: 1.7em;
     letter-spacing: -1px;
-    margin-bottom: 30px;
+    //margin-bottom: 30px;
+    text-align: center;
+    font-weight: normal;
+    color: #424242;
+  }
+
+  h3{
+    font-size: 1.5em;
+    letter-spacing: -1px;
+    margin: 0px;
     text-align: center;
     font-weight: normal;
     color: $grayLight;
   }
+
   .times{
     margin-top:60px;
   }

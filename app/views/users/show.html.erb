@@ -7,7 +7,7 @@
 	<div class="row">
 		<div class="span6 offset3">
 			<h2> My tracks </h2>
-			<div class="map">
+			
 				<!-- placeholder for now -->
 				<% wayp = Array.new %>
 				<% if !@waypoints.nil? %>
@@ -18,11 +18,17 @@
 				<%= gmaps({ direction: {
 								data: { from: @first, to: @last},
 								options: { travelMode: "WALKING", waypoints: wayp }}
-				})%>
-			</div>
+							})%>				
 		</div>
 		<div class="span3 times">
 			<h2> My times <%= @all  %></h2>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span6 offset3">
+			<% if !@tracks.nil? %>
+			<%= render @tracks %>
+			<% end %>
 		</div>
 	</div>
 </div>
