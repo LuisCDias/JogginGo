@@ -140,5 +140,63 @@ describe "UserPages" do
 											text: "Settings")
 			end
 		end
+
+		describe 'destroy user path' do
+			
+			before do
+			  @admin = User.create!(username: "admin", name: "Administrator", email: "admin@example.com",
+							 		password: "foobar", password_confirmation: "foobar")
+			  @admin.toggle!(:admin)
+			end
+
+			describe 'visiting users index while NOT signed in as admin' do
+				
+				before do
+				  visit users_path
+				end
+
+				it "should not have link to delete" do
+					should_not have_link "Remover"
+				end
+			end
+
+			describe 'visiting users index while SIGNED in as admin' do
+				
+				before do
+					click_link "Signout"
+					visit signin_path
+					fill_in "session_email",    with: @admin.email
+					fill_in "session_password", with: @admin.password
+					click_button "Sign in"
+					visit users_path
+				end
+
+				it "should have link to delete user" do
+					should have_link "Remove"
+				end
+
+				it "should not have link to delete Admin" do
+					should_not have_link "Remove", href: user_path(@admin)
+				end
+
+				describe 'delete a user' do
+
+					it "should delete the user after clicking 'Remove' " do
+						expect do
+							click_link("Remove")
+						end.to change(User, :count).by(-1)
+					end
+
+					it "should show a message" do
+						have_selector('div.alert.alert-success')
+					end
+
+					it "should redirect to users index" do
+						have_selector('title',
+											text: "Membros")
+					end
+				end
+			end
+		end
 	end
 end

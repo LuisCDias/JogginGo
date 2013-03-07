@@ -13,8 +13,13 @@ body {
   color: #5a5a5a;
 }
 
-a#to_top{
-  cursor: pointer;
+a{
+  &#to_top{
+    cursor: pointer;
+  }
+  &#about{
+    cursor: pointer;
+  }
 }
 
 h1.thick{

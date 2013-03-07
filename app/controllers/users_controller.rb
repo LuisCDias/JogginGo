@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 	before_filter :authorize, only: [:show, :edit, :update]
 	before_filter :signed_user, only: [:edit, :update]
 	before_filter :already_signed, only:[:new, :create]
+	before_filter :administration, only: [:destroy]
 
 	def index
 		@title = "Members"
@@ -60,18 +61,30 @@ class UsersController < ApplicationController
 		end
 	end
 
-	private
-
-	def authorize
-		if !signed_in?
-			store_location
-			flash[:info] = "Authentication is needed to view this page"
-			redirect_to signin_path
-		end
+	def destroy
+		User.find(params[:id]).delete
+		flash[:success] = "User successfully deleted"
+		redirect_to users_path 
 	end
 
-	def already_signed
-		if signed_in?
+	private
+
+		def administration
+	      if current_user.nil? || !current_user.admin?
+	        redirect_to root_path
+	      end
+    	end
+
+		def authorize
+			if !signed_in?
+				store_location
+				flash[:info] = "Authentication is needed to view this page"
+				redirect_to signin_path
+			end
+		end
+
+		def already_signed
+			if signed_in?
 	      	#flash[:info] = "You are already logged in. Sign out and try again"
 	      	redirect_to root_path
 	      end
@@ -88,4 +101,4 @@ class UsersController < ApplicationController
 	   	params[:user].delete(:password) if params[:user][:password].blank?
 	   	params[:user].delete(:password_confirmation) if params[:user][:password_confirmation].blank?
 	   end
-	end
+end
