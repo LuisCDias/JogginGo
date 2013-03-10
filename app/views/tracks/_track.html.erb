@@ -1,1 +1,8 @@
-<h3 <%= current_track(track) %>><%= link_to track.name, profile_path(track_id: track.id) %> in <%= track.city%>, <%= track.country %></h3>
+<% tracks.each_with_index do |track,i| %>
+
+	<% if params[:track_id].nil? && i == 0 %>
+		<h3 class="current"><%= link_to track.name, profile_path(track_id: track.id) %> in <%= track.city%>, <%= track.country %></h3>
+	<% else %>
+		<h3 <%= current_track(track) %>><%= link_to track.name, profile_path(track_id: track.id) %> in <%= track.city%>, <%= track.country %></h3>
+	<% end %>
+<% end %>

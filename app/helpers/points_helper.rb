@@ -1,7 +1,7 @@
 module PointsHelper
 
 	def waypoints_to_addresses(waypoints)	
-		wayp = []
+		wayp = Array.new
 		if !waypoints.nil?
 			waypoints.each do |way|
 				wayp << way.address

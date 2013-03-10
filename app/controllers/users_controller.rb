@@ -16,10 +16,12 @@ class UsersController < ApplicationController
 		@tracks = @user.tracks
 		track = params[:track_id].nil? ? @user.tracks.first : Track.find(params[:track_id])
 		if !track.nil?
-			@waypoints = track.points
-			@first = @waypoints.shift.address
-			@last = @waypoints.pop.address
-			@waypoints = waypoints_to_addresses(@waypoints)
+			@waypoints = waypoints_to_addresses(track.points)
+			@first = @waypoints.shift
+			@last = @waypoints.pop
+		else
+			#tratar os casos em que o user não tem nenhuma track
+			@waypoints = []
 		end 
 	end
 
