@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 			@waypoints = track.points
 			@first = @waypoints.shift.address
 			@last = @waypoints.pop.address
+			@waypoints = waypoints_to_addresses(@waypoints)
 		end 
 	end
 

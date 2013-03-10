@@ -120,7 +120,7 @@ describe "UserPages" do
 			end
 
 			it "should have a map" do
-				should have_selector('div.map')
+				should have_selector('div.map_container')
 			end
 		end
 

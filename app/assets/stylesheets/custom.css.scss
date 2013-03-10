@@ -376,7 +376,15 @@ h1.center {
     text-align: center;
     font-weight: normal;
     color: $grayLight;
+    
+    &.current{
+      a{
+        color: black;
+      }
+    }
   }
+
+  
 
   .times{
     margin-top:60px;

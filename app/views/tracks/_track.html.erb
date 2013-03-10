@@ -1,1 +1,1 @@
-<h3><%= link_to track.name, profile_path(track_id: track.id) %> in <%= track.city%>, <%= track.country %></h3>
+<h3 <%= current_track(track) %>><%= link_to track.name, profile_path(track_id: track.id) %> in <%= track.city%>, <%= track.country %></h3>
