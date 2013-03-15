@@ -75,60 +75,20 @@ Luís Filipe Castanheira Gomes\\
 \thispagestyle{plain} 
 
 \begin{abstract}
-Com uma interface limpa e amiga do utilizador, o JogginGo! é uma aplicação Web que permite a gestão de todas as corridas feitas por qualquer utilizador registado. Cada corrida, é um tratada como um conjunto de coordenadas GPS (\textit{Global Positioning System}) recolhidas com o auxílio de um dispositivo móvel. A cada minuto, é recolhida a posição em que o atleta se encontra, para uma mais fácil representação no \textit{webservice}. Para além disso será ainda possível competir contra outros utilizadores, através de contra-relógio, em percursos pré-definidos pela plataforma. 
+Com uma interface limpa e amiga do utilizador, o JogginGo! é uma aplicação Web que permite a gestão de todas as corridas feitas por qualquer utilizador registado. Cada corrida é um tratada como um conjunto de coordenadas GPS (\textit{Global Positioning System}) recolhidas com recurso aos sensores de um dispositivo móvel. A cada minuto, intervalo de tempo definido, é recolhida a posição em que o atleta se encontra, e o conjunto de pontos é assim representado visualmente na interface \textit{web}. É depois possível também competir contra outros utilizadores, através de contra-relógio, em percursos pré-definidos pela plataforma. Utilizadores que façam jogging no seu dia a dia podem assim aproveitar a evolução dos dispositivos móveis e dos sistemas GPS para melhorarem a sua performance, ao mesmo tempo que aproveitam a componente social para maior diversão.
 \end{abstract}
 
 \section{Introdução}\label{sec:intro}
 
-Os sistemas \scada{} (\emph{Supervisory Control And Data Acquisition})
-são responsáveis pela recolha e análise de informação em tempo real.
-Actualmente estes sistemas recorrem às mais avançadas tecnologias de
-computação e comunicação para monitorizar e controlar estruturas ou
-equipamentos industriais dispersos geograficamente e recorrem a
-interfaces gráficas para tornar a interacção com o utilizador mais
-amigável\footnote{Exemplo de artigo retirado de uma submissão à
-  Conferência XATA2006, mas sem usar LLNCS.}.
-
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nunc eu
-nulla. Pellentesque vitae nibh ultrices quam iaculis
-convallis. Aliquam purus eros, varius eget, volutpat sodales,
-imperdiet nec, lacus. Curabitur in elit sed sem rutrum posuere. Class
-aptent taciti sociosqu ad litora torquent per conubia nostra, per
-inceptos himenaeos. Duis sem. Praesent ultricies odio vel
-sapien. Integer faucibus malesuada libero. Cras semper, dolor id
-ullamcorper varius, magna risus volutpat felis, id pellentesque nulla
-ante at erat. Integer sodales. 
-
-Quisque sit amet odio. In at risus sit amet turpis interdum
-posuere. Maecenas iaculis vehicula sem. Ut leo arcu, malesuada vel,
-imperdiet id, dignissim a, purus. Duis eleifend, lectus non venenatis
-dignissim, risus libero imperdiet mi, nec gravida massa libero sed
-mauris. Nullam lobortis libero non sapien. Integer convallis iaculis
-erat. Morbi dictum. Ut ultrices pellentesque velit. Cras ac
-ante. Etiam in neque tincidunt lacus gravida vehicula. Proin et nisi. 
-
-Vivamus non nunc nec risus tempor varius. Quisque bibendum mi at
-dolor. Aliquam consectetuer condimentum risus. Aliquam luctus pulvinar
-sem. Duis aliquam, urna et vulputate tristique, dui elit aliquet nibh,
-vel dignissim magna turpis id sapien. Duis commodo sem id
-quam. Phasellus dolor. Class aptent taciti sociosqu ad litora torquent
-per conubia nostra, per inceptos himenaeos. 
-
-Duis eget diam. In est justo, tristique in, lacinia vel, feugiat eget,
-quam. Pellentesque habitant morbi tristique senectus et netus et
-malesuada fames ac turpis egestas. Fusce feugiat, elit ac placerat
-fermentum, augue nisl ultricies eros, id fringilla enim sapien eu
-felis. Vestibulum ante ipsum primis in faucibus orci luctus et
-ultrices posuere cubilia Curae; Sed dolor mi, porttitor quis,
-condimentum sed luctus. 
-
+Os sistemas GPS (\emph{Global Positioning System}) são responsáveis pela recolha, em tempo real, da posição de um determinado dispositivo no mundo. Actualmente um sistema GPS é altamente fiável, garantindo com enorme exactidão a posição, em formato de coordenadas, num mapa previamente inserido. Para além da posição, através de um GPS é possível calcular dados como velocidade média, velocidade instantânea ou até o relevo.
+Por outro lado, assistimos a um evoluir sistemático da utilização de dispositivos móveis, tais como os \emph{smartphones}. A cada dia, a sua utilização é mais massificada, já que são dispositivos com alta mobilidade e performance, que permitem aceder à internet em qualquer lado, a qualquer altura. Aproveitando as suas capacidades técnicas, uma percentagem altamente elevada destes dispositivos incluem sensores GPS. 
+É através deste princípio que surge o JogginGo!. Utilizando as capacidades de um dispositivo móvel Android, um \emph{jogger} inicia o seu percurso, e automaticamente a aplicação móvel recolhe, em intervalos de tempo definidos, a sua posição actual. Esta informação é guardada em formato XML, e no final do percurso existe assim um conjunto estruturado de informação que é depois sincronizada com o \emph{webservice}. Recorrendo à interface web, o jogger pode ver todos os seus percursos e respectivos tempos e outra informação como, por exemplo, a velocidade média calculada com base na distância percorrida.
 Para além desta introdução, onde se caracterizou o problema abordado
-por este projecto, refere-se na secção~\ref{sec:sota} o
-estado da arte e são descritos os trabalhos relacionados com a
-visualização de diagramas sinópticos de sistemas \scada{} na
-\textit{Web}. 
+por este projecto, refere-se na secção \ref{sec:estart} o
+estado da arte, onde são descritos os trabalhos relacionados com a
+captura de coordenadas em dispositivos móveis e a sua gestão e visualização na \textit{Web} para melhor enquadramento do leitor nesta temática. 
 
-\section{\svg}\label{sec:sota}
+\section{Estado da Arte}\label{sec:estart}
 
 Nos últimos tempos têm surgido diversas soluções, apresentadas por
 empresas do sector Automação de Sistemas para a disponibilização de
