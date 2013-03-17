@@ -88,33 +88,14 @@ por este projecto, refere-se na secção \ref{sec:estart} o
 estado da arte, onde são descritos os trabalhos relacionados com a
 captura de coordenadas em dispositivos móveis e a sua gestão e visualização na \textit{Web} para melhor enquadramento do leitor nesta temática. 
 
-\section{Estado da Arte}\label{sec:estart}
+\section{Sensores GPS em \emph{smartphones}}\label{sec:estart}
 
-Nos últimos tempos têm surgido diversas soluções, apresentadas por
-empresas do sector Automação de Sistemas para a disponibilização de
-sistemas \scadadms{} na \textit{Web}.
+Nos últimos tempos têm surgido diversas soluções, apresentadas por empresas e \emph{developers} que trabalham na área das aplicações móveis, mais especificamente com recurso aos sensores GPS.
 
-\emph{Scalable Vector Graphics} é uma linguagem em formato XML que
-descreve gráficos de duas dimensões. 
-Este formato padronizado pela W3C (\emph{World Wide Web Consortium})
-é livre de patentes ou direitos de autor e está totalmente
-documentado, à semelhança de outros W3C standards~\cite{kn:svgdoc}.
+Os sensores GPS são sensores de posicionamento que detectam a localização do \emph{smartphone}, cujos dados podem ser recolhidos e analisados. Para devido funcionamento requerem uma conexão a 3 satélites para recolher o posicionamento em latitude e longitude, ou 4 satélites para recolher, para além destes, a altitude.
+Sendo um sensor de posicionamento, existe o factor precisão a ter em conta, e este aumenta consoante o número de satélites visíveis na posição do sector. Normalmente a precisão encontra-se num intervalo de 20-50 metros, ou em casos mais favoráveis em cerca de 10 metros.
 
-Sendo uma linguagem XML, o \svg{} herda uma série de vantagens: a
-possibilidade de transformar \svg{} usando técnicas como XSLT, de embeber
-\svg{} em qualquer documento XML usando \textit{namespaces} ou até de 
-estilizar \svg{} recorrendo a CSS (\emph{Cascade Style Sheets}). 
-De uma forma geral, pode dizer-se que \svg{}s interagem bem com as
-actuais tecnologias ligadas ao XML e à Web, tal como referido
-em~\cite{kn:svgibm,kn:svgw3c}.
-
-% Duis eget diam. In est justo, tristique in, lacinia vel, feugiat eget,
-% quam. Pellentesque habitant morbi tristique senectus et netus et
-% malesuada fames ac turpis egestas. Fusce feugiat, elit ac placerat
-% fermentum, augue nisl ultricies eros, id fringilla enim sapien eu
-% felis. Vestibulum ante ipsum primis in faucibus orci luctus et
-% ultrices posuere cubilia Curae; Sed dolor mi, porttitor quis,
-% condimentum sed luctus. 
+%Principalmente num \emph{smartphone}, existem alguns factores a ter em conta. O GPS %não funciona debaixo de um telhado, utiliza uma grande quantidade de bateria, precisa de %algum tempo para fixar o sinal e a existência de edifícios pode interferir no sinal do %satélite, reduzindo a precisão. 
 
 \subsection{Batik \svg{} Toolkit} \label{batik} 
 
