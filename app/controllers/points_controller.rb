@@ -10,6 +10,7 @@ class PointsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @points }
+      format.xml { render xml: @points }
     end
   end
 
@@ -21,6 +22,7 @@ class PointsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @point }
+      format.xml { render xml: @point }
     end
   end
 

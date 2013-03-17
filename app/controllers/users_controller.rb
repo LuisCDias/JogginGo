@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 	def index
 		@title = "Members"
 		@users = User.all #substituir por paginate
+
 	end
 
 	def show
@@ -23,6 +24,11 @@ class UsersController < ApplicationController
 			#tratar os casos em que o user não tem nenhuma track
 			@waypoints = []
 		end 
+		respond_to do |format|
+      		format.html # index.html.erb
+      		format.json { render json: @user }
+      		format.xml { render xml: @user }
+    end
 	end
 
 	def new

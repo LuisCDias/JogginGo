@@ -12,9 +12,10 @@
 %\usepackage{times}              % PS fonts
 \usepackage{lastpage}           % to have lastpage in headers
 \usepackage{url}                % urls
-
+\usepackage{listings}
 % geometry package
 \usepackage[outer=20mm,inner=30mm,vmargin=20mm,includehead,includefoot,headheight=15pt]{geometry}
+
 
 %% space between columns
 \columnsep 10mm
@@ -107,175 +108,98 @@ A constante necessidade de recorrer às redes sociais \emph{online}, partilhando
  
 Encontramos assim aplicações que disponibilizam o \emph{tracking} de um atleta durante o desporto e permitem a partilha em redes sociais para que este possa partilhar a sua performance com amigos e, de forma indirecta, comparar com a prestação de outros nas suas actividades.
 
-\section{Visualizador de Sinópticos}\label{sec:application}
+\section{A Aplicação}\label{sec:application}
 
-A arquitectura do visualizador assenta sobre os seguintes conceitos base \cite{kn:zpmd}:
+A grande aposta desta aplicação é a vertente social. O JogginGo! não só permite a gestão dos troços individuais de cada atleta, como permite uma competição, ao estilo contra-relógio, entre atletas, em percursos pré-definidos pela plataforma.
+Esta aplicação assenta em duas vertentes base. A aplicação \textit{Android} e o \textit{Webservice}.
 \begin{itemize}
-\item \textbf{Componentes} --- Suspendisse auctor mattis augue \emph{push};
-\item \textbf{Praesent} --- Sit amet sem maecenas eleifend facilisis leo;
-\item \textbf{Pellentesque} --- Habitant morbi tristique senectus et netus.
+\item \textbf{Android} --- É através da aplicação móvel que é recolhida toda a informação das coordenadas GPS que o \textit{jogger} percorre. Aquando do início da corrida, o atleta abre a aplicação e começa a recolha. A partir desse momento, a cada minuto, que é o tempo definido por defeito, é recolhida a coordenada GPS exacta de onde o atleta se encontra. Quando finalizada a corrida, o atleta deve passar a informação ao dispositivo móvel que pretende finalizar, e aí é dado por terminado o percurso. Após esta recolha de informação, o utilizador, recorrendo a uma ligação à internet, seja 3G ou Wifi, sincroniza o dispositivo com o \textit{webservice}, e toda a informação do percurso (ou percursos), que ainda não tenham sido sincronizados, são transferidos para a plataforma online, precedendo à sua respectiva representação.
+\item \textbf{Webservice} --- Pode afirmar-se que é o cerne de toda a aplicação. É nele que é feita a gestão de todos os percursos dos atletas. Como podemos ver na figura seguinte, esta é a interface que permite ao utilizador visualizar todos os seus percursos, assim como o respectivo tempo. Podemos ver o dia em que foi realizada, a hora, a localidade e o país.
 \end{itemize}
 
-Duis eget diam. In est justo, tristique in, lacinia vel, feugiat eget,
-quam. Pellentesque habitant morbi tristique senectus et netus et
-malesuada fames ac turpis egestas. Fusce feugiat, elit ac placerat
-fermentum, augue nisl ultricies eros, id fringilla enim sapien eu
-felis. Vestibulum ante ipsum primis in faucibus orci luctus et
-ultrices posuere cubilia Curae; Sed dolor mi, porttitor quis,
-condimentum sed luctus. 
+\subsection{Test your Limits!}
+A grande inovação da plataforma JogginGo! é a inclusão da modalidade \textit{"Test your Limits"}. Nesta funcionalidade, os \textit{joggers} são convidados a competir entre si em percursos estipulados pela plataforma. Assim, cada \textit{jogger} terá a possibilidade de se transformar no campeão da sua zona, ou tentar bater o tempo de outros campeões noutros percursos. Sempre num estilo amigável, esta modalidade pretende incentivar a competição saudável, promovendo o desporto e a saúde.
 
-Apresenta-se de seguida um exemplo de equação, completamente fora do contexto:
-\begin{eqnarray}
-CIF_1: \hspace*{5mm}F_0^j(a) &=& \frac{1}{2\pi \iota} \oint_{\gamma} \frac{F_0^j(z)}{z - a} dz\\
-CIF_2: \hspace*{5mm}F_1^j(a) &=& \frac{1}{2\pi \iota} \oint_{\gamma} \frac{F_0^j(x)}{x - a} dx \label{eq:cif}
-\end{eqnarray}
+\subsection {Dados XML}
+Toda a informação relativa aos percursos, é armazenada numa base de dados. No entanto, é necessário ter um documento de suporte para transferir os ficheiros da aplicação móvel para o \textit{Webservice} e vice-versa. Como tal, recorremos a documentos XML para transferir a informação de uma forma coerente e estruturada. Segue uma pequena demonstração de trechos dos nosso documentos XML, usados na transferência de informação:
 
-Na Equação~\ref{eq:cif} lorem ipsum dolor sit amet, consectetuer
-adipiscing elit. Suspendisse tincidunt viverra elit. Donec tempus
-vulputate mauris. Donec arcu. Vestibulum condimentum porta
-justo. Curabitur ornare tincidunt lacus. Curabitur ac massa vel ante
-tincidunt placerat. Cras vehicula semper elit. Curabitur gravida, est
-a elementum suscipit, est eros ullamcorper quam, sed cursus velit
-velit tempor neque. Duis tempor condimentum ante.
+\lstset{
+  language=XML,
+  morekeywords={user,email,name,username,tracks, track,city,country,name, approved, created, id, private, updated, user,points,point,address,latitude,longitude}
+}
+\begin{lstlisting}
+<user>
+ <email>matt@joggingo.pt</email>
+ <id type="integer">1</id>
+ <name>Matt Damon</name>
+ <username>mdamon</username>
+ <track>
+  <city>Porto</city>
+  <country>Portugal</country>
+  <name>Trilho</name>
+  <user-id type="integer">1</user-id>
+  <points type="array">
+   <point>
+    <address>
+    Cais Cavaco 2, 4440-452 Vila Nova de 
+    Gaia, Portugal
+    </address>
+    <id type="integer">2</id>
+    <latitude type="float">
+    41.142982
+    </latitude>
+    <longitude type="float">
+    -8.631209
+     </longitude>
+   </point>
+   <point>
+    <address>
+    Cais Capelo Ivens 17, 4440-452 
+    Vila Nova de Gaia, Portugal
+    </address>
+    <id type="integer">3</id>
+    <latitude type="float">
+    41.142333
+    </latitude>
+    <longitude type="float">
+    -8.626263
+    </longitude>
+   </point>address
+   <point>
+    <address>
+    Cais de Gaia, 4440-452 
+    Vila Nova de Gaia, Portugal
+    </address>
+    <id type="integer">4</id>
+    <latitude type="float">
+    41.138842
+    </latitude>
+    <longitude type="float">
+    -8.621242
+    </longitude>
+   </point>
+  </points>
+ </track>
+</user>
+\end{lstlisting}
 
-\subsection{Exemplo de Figura}
+Explicando melhor, este documento pretende ser um pequeno exemplo de uma representação de um percurso feito por um utilizador, neste caso, o utilizador \textit{Matt Damon}. Como facilmente conseguimos perceber, esse \textit{user} tem um \textit{email}, um \textit{id} um nome e um \textit{username} associado. Após estas informações, segue a \textit{tag} <\textbf{track}>. A partir daqui, são passadas todas as informações necessárias para que o \textit{webservice} identifique da melhor maneira o trilho pretendido. Como podemos ver, cada percurso tem uma cidade, um país, um \textit{id}, um nome e um \textit{array} de pontos. Cada um desses pontos é caracterizado pela morada, pelo seu id, e pelas coordenadas GPS já referidas anteriomente (latitude e longitude). A morada fica guardada pois a API utilizada no googlemaps, necessita de uma morada para determinar o ponto em questão. Com esta estruturação, facilmente transferimos a informação entre os dois terminais, de uma forma simples, estruturada e de fácil leitura.
 
-É apresentado na Figura~\ref{fig:arch} %da página~\pageref{fig:arch}
-um exemplo de figura flutuante que ficará onde o \LaTeX\ entender.
-
-\begin{figure}
-  \begin{center}
-    \leavevmode
-    \includegraphics[width=0.45\textwidth]{puzzle}
-    \caption{Arquitectura da Solução Proposta}
-    \label{fig:arch}
-  \end{center}
-\end{figure}
-
-Loren ipsum dolor sit amet, consectetuer adipiscing elit. 
-Praesent sit amet sem. Maecenas eleifend facilisis leo. Vestibulum et
-mi. Aliquam posuere, ante non tristique consectetuer, dui elit
-scelerisque augue, eu vehicula nibh nisi ac est. Suspendisse elementum
-sodales felis. Nullam laoreet fermentum urna. 
-
-Duis eget diam. In est justo, tristique in, lacinia vel, feugiat eget,
-quam. Pellentesque habitant morbi tristique senectus et netus et
-malesuada fames ac turpis egestas. Fusce feugiat, elit ac placerat
-fermentum, augue nisl ultricies eros, id fringilla enim sapien eu
-felis. Vestibulum ante ipsum primis in faucibus orci luctus et
-ultrices posuere cubilia Curae; Sed dolor mi, porttitor quis,
-condimentum sed luctus. 
-
-Duis eget diam. In est justo, tristique in, lacinia vel, feugiat eget,
-quam. Pellentesque habitant morbi tristique senectus et netus et
-malesuada fames ac turpis egestas. Fusce feugiat, elit ac placerat
-fermentum, augue nisl ultricies eros, id fringilla enim sapien eu
-felis. Vestibulum ante ipsum primis in faucibus orci luctus et
-ultrices posuere cubilia Curae; Sed dolor mi, porttitor quis,
-condimentum sed luctus. 
-
-\subsection{Exemplo de Tabela}
-
-É apresentado na Tabela~\ref{tab:exemplo1} um exemplo de tabela.
-
-\begin{table}[h]
-  \centering
-  \caption{Uma Tabela Simples}
-\begin{tabular}{| l | p{45mm} |}
-	\hline
-\textbf{Acrónimo} & \textbf{Significado}\\
-	\hline
-	\hline
-        ADT   & \emph{Abstract Data Type}\\\hline
-        ANDF  & \emph{Architecture-Neutral Distribution Format}\\\hline
-        API   & \emph{Application Programming Interface}\\
-	\hline
-\end{tabular}
-  \label{tab:exemplo1}
-\end{table}
-
-Duis eget diam. In est justo, tristique in, lacinia vel, feugiat eget,
-quam. Pellentesque habitant morbi tristique senectus et netus et
-malesuada fames ac turpis egestas. Fusce feugiat, elit ac placerat
-fermentum, augue nisl ultricies eros, id fringilla enim sapien eu
-felis. Vestibulum ante ipsum primis in faucibus orci luctus et
-ultrices posuere cubilia Curae; Sed dolor mi, porttitor quis,
-condimentum sed luctus. 
-
-Loren ipsum dolor sit amet, consectetuer adipiscing elit. 
-Praesent sit amet sem. Maecenas eleifend facilisis leo. Vestibulum et
-mi. Aliquam posuere, ante non tristique consectetuer, dui elit
-scelerisque augue, eu vehicula nibh nisi ac est. Suspendisse elementum
-sodales felis. Nullam laoreet fermentum urna. 
-
-Duis eget diam. In est justo, tristique in, lacinia vel, feugiat eget,
-quam. Pellentesque habitant morbi tristique senectus et netus et
-malesuada fames ac turpis egestas. Fusce feugiat, elit ac placerat
-fermentum, augue nisl ultricies eros, id fringilla enim sapien eu
-felis. Vestibulum ante ipsum primis in faucibus orci luctus et
-ultrices posuere cubilia Curae; Sed dolor mi, porttitor quis,
-condimentum sed luctus. 
-
-% \begin{table}
-%   \centering
-%   \caption{Tabela Exemplo}
-% \begin{tabular}{|c|r@{.}lr@{.}lr@{.}l||r|}
-% 	\hline
-% \multicolumn{8}{|c|}
-% 	{\rule[-3mm]{0mm}{8mm}Iteração $k$ de $f(x_n)$} \\
-% \textbf{\em k}
-% 	& \multicolumn{2}{c}{$x_1^k$}
-% 	& \multicolumn{2}{c}{$x_2^k$}
-% 	& \multicolumn{2}{c||}{$x_3^k$}
-% 	& comentários \\ \hline \hline
-% 0   & -0&3                 & 0&6                 &  0&7   & - \\
-% 1   &  0&47102965 & 0&04883157 & -0&53345964  & $\delta<\epsilon$ \\
-% 2   &  0&49988691 & 0&00228830 & -0&52246185  & $\delta < \varepsilon$ \\
-% 3   &  0&49999976 & 0&00005380 & -0&523656   &   $N$ \\
-% 4   &  0&5                 & 0&00000307 & -0&52359743  & \\
-% \vdots	& \multicolumn{2}{c}{\vdots}
-% 	& \multicolumn{2}{c}{$\ddots$}
-% 	& \multicolumn{2}{c||}{\vdots}  & \\
-% 7   &  0&5   & 0&0    & \textbf{-0}&\textbf{52359878}
-% 		 & $\delta<10^{-8}$ \\ \hline
-% \end{tabular}
-%   \label{tab:exemplo2}
-% \end{table}
-
-% Loren ipsum dolor sit amet, consectetuer adipiscing elit. 
-% Praesent sit amet sem. Maecenas eleifend facilisis leo. Vestibulum et
-% mi. Aliquam posuere, ante non tristique consectetuer, dui elit
-% scelerisque augue, eu vehicula nibh nisi ac est. Suspendisse elementum
-% sodales felis. Nullam laoreet fermentum urna. 
-
-Duis eget diam. In est justo, tristique in, lacinia vel, feugiat eget,
-quam. Pellentesque habitant morbi tristique senectus et netus et
-malesuada fames ac turpis egestas. Fusce feugiat, elit ac placerat
-fermentum, augue nisl ultricies eros, id fringilla enim sapien eu
-felis. Vestibulum ante ipsum primis in faucibus orci luctus et
-ultrices posuere cubilia Curae; Sed dolor mi, porttitor quis,
-condimentum sed luctus. 
 
 \section{Conclusões}\label{sec:conclusions}
 
-Neste artigo abordou-se o desenvolvimento de um protótipo, com vista a
-estudar a adequadibilidade da tecnologia \svg{} à visualização de
-sinópticos na \textit{Web}.
+Neste artigo abordou-se o desenvolvimento de uma aplicação que permita a monitorização de um \textit{jogger} ao longo de um percurso. Aliado à sua vertente social, esta plataforma permite fazer a ponte entre a individualidade de fazer \textit{jogging} com a possibilidade de competir saudavelmente contra outros atletas.
+Posto toda a problemática, resolvemos dividir o desenvolvimento em três fases distintas:
 
-Loren ipsum dolor sit amet, consectetuer adipiscing elit. 
-Praesent sit amet sem. Maecenas eleifend facilisis leo. Vestibulum et
-mi. Aliquam posuere, ante non tristique consectetuer, dui elit
-scelerisque augue, eu vehicula nibh nisi ac est. Suspendisse elementum
-sodales felis. Nullam laoreet fermentum urna. 
+\begin{itemize}
+\item \textbf{Recolha de requisitos} -- Nesta etapa foi feito um levantamento de todos os requisitos necessários para a correcta implementação desta aplicação. Foi feito um estudo de todas as tecnologias existentes a fim de escolher aquela que melhor preenchesse o requisitos da aplicação.
+\item \textbf{Recolha dos dados} -- Apesar de já existir o modelo do documento XML que vai vigorar na aplicação, ainda não foi feita a recolha da informação. Isto deve-se ao facto de o JogginGo! não utilizar nenhum dataset existente, mas sim, usar a sua aplicação móvel para a recolha dos próprios elementos. Assim, essa recolha será feita aquando da finalização do desenvolvimento  da aplicação \textit{Android}.
+\item \textbf{Análise dos dados e desenvolvimento da plataforma}  -- Nesta terceira etapa pretende-se fazer a análise dos documentos XML recebidos em ambos os terminais, e desenvolver a plataforma para que possa ser usada pelo utilizador final.
 
-Duis eget diam. In est justo, tristique in, lacinia vel, feugiat eget,
-quam. Pellentesque habitant morbi tristique senectus et netus et
-malesuada fames ac turpis egestas. Fusce feugiat, elit ac placerat
-fermentum, augue nisl ultricies eros, id fringilla enim sapien eu
-felis. Vestibulum ante ipsum primis in faucibus orci luctus et
-ultrices posuere cubilia Curae; Sed dolor mi, porttitor quis,
-condimentum sed luctus. 
+No fim destas três etapas, pretendemos ter uma plataforma pronta a usar em qualquer parte do Mundo, usando documentos XML como base para a troca de informação entre 	\textit{webservice} e os dispositivos móveis.
+\end{itemize}
 
+\nocite{*}
 %% auto bibliographic list 
 \renewcommand{\bibname}{Referências}
 % uses bibtex file
@@ -283,7 +207,7 @@ condimentum sed luctus.
 %\bibliographystyle{alpha}
 \bibliographystyle{unsrt-pt}
 %\bibliographystyle{unsrt}
-\bibliography{artigo}
+\bibliography{artigo}{}
 
 \end{document}
 

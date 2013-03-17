@@ -9,6 +9,7 @@ class TracksController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @tracks }
+      format.xml { render xml: @tracks }
     end
   end
 

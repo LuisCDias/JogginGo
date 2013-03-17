@@ -1,31 +1,23 @@
 \begin{thebibliography}{1}
 
-\bibitem{kn:svgdoc}
+\bibitem{W3C}
 {W3C} {World Wide Web Consortium}.
-\newblock {W3C SVG Specification}.
-\newblock \url{http://www.w3.org/TR/SVG11/}, Junho 2005.
+\newblock {XML Tutorial}.
+\newblock \url{http://www.w3schools.com/xml/}.
 
-\bibitem{kn:svgibm}
-IBM.
-\newblock Program with {SVG}.
-\newblock \url{http://www-128.ibm.com/developerworks/xml/library/x-matters40/},
-  Maio 2005.
+\bibitem{WIKI}
+Wikipedia.
+\newblock {XML, What is it?}
+\newblock \url{http://en.wikipedia.org/wiki/XML}.
 
-\bibitem{kn:svgw3c}
-{W3C} {World Wide Web Consortium}.
-\newblock {W3C} --- {About SVG}.
-\newblock \url{http://www.w3.org/TR/SVG/intro.html/}, Abril 2005.
+\bibitem{gmaps4rails}
+Benjamin Roth.
+\newblock {Google Maps for Rails}.
+\newblock \url{https://github.com/apneadiving/Google-Maps-for-Rails }.
 
-\bibitem{kn:batikarchitecture}
-Apache.
-\newblock Batik \svg{} {T}oolkit {A}rchitecture.
-\newblock \url{http://xml.apache.org/batik/architecture.html#coreComponents},
-  Junho 2005.
-
-\bibitem{kn:zpmd}
-Debora~J. Zukowski, Apratim Purakayastha, Ajay Mohindra, e Murthy Devarakonda.
-\newblock Metis: A thin-client application framework.
-\newblock {\em Proceedings of the Third Conference on Object-Oriented
-  Technologies and Systems}, p\'{a}ginas 103--114, Junho 1997.
+\bibitem{gmapsapi}
+Google.
+\newblock {Google Maps API}.
+\newblock \url{https://developers.google.com/maps/}.
 
 \end{thebibliography}
