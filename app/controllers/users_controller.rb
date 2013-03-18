@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 	before_filter :signed_user, only: [:edit, :update]
 	before_filter :already_signed, only:[:new, :create]
 	before_filter :administration, only: [:destroy]
+	before_filter :own_tracks, only: :show 
 
 	def index
 		@title = "Members"
@@ -28,7 +29,7 @@ class UsersController < ApplicationController
       		format.html # index.html.erb
       		format.json { render json: @user }
       		format.xml { render xml: @user }
-    end
+    	end
 	end
 
 	def new
@@ -92,5 +93,14 @@ class UsersController < ApplicationController
 	   def check_new_password
 	   	params[:user].delete(:password) if params[:user][:password].blank?
 	   	params[:user].delete(:password_confirmation) if params[:user][:password_confirmation].blank?
+	   end
+
+	   def own_tracks
+	   	if !params[:track_id].nil?
+		   	track = Track.find_by_id(params[:track_id])
+		   	if !(track.user_id == current_user.id)
+		   		redirect_to profile_path
+		   	end
+		end
 	   end
 end
