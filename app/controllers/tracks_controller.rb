@@ -1,6 +1,5 @@
 class TracksController < ApplicationController
     before_filter :authorize, only: [:show, :edit, :update, :index, :new]
-    before_filter :already_signed, only:[:new, :create]
   # GET /tracks
   # GET /tracks.json
   def index
@@ -43,8 +42,9 @@ class TracksController < ApplicationController
   # POST /tracks
   # POST /tracks.json
   def create
-    @track = Track.new(params[:track])
-
+    #@track = Track.new(params[:track])
+    parsed_json = ActiveSupport::JSON.decode(params[:track])
+    raise parsed_json.inspect
     respond_to do |format|
       if @track.save
         format.html { redirect_to @track, notice: 'Track was successfully created.' }

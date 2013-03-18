@@ -18,7 +18,11 @@ Joggingo::Application.routes.draw do
 
   match '/profile', to: 'users#show'
   match '/settings', to: 'users#edit'
-  
+
+  post '/mobile', to: 'tracks#create', :as => "mobile"
+
+
+
   # Sample resource route with options:
   #   resources :products do
   #     member do

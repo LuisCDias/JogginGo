@@ -22,4 +22,11 @@
 			<% end %>
 		</div>
 	</div>
+	<div>
+		<%= link_to 'Mobiless', mobile_path(track:"{\"approved\":true,\"city\":\"Porto\",\"country\":\"Portugal\",\"id\":1,\"name\":\"Trilho lindos\",\"private\":true,\"user_id\":1}")
+		%>
+		<% json = "{\"approved\":true,\"city\":\"Porto\",\"country\":\"Portugal\",\"id\":1,\"name\":\"Trilho lindos\",\"private\":true,\"user_id\":1}"
+		%>
+		<%= button_to("coiso", mobile_path(:track => json))%>
+	</div>
 </div>
