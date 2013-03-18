@@ -98,9 +98,7 @@ class UsersController < ApplicationController
 	   def own_tracks
 	   	if !params[:track_id].nil?
 		   	track = Track.find_by_id(params[:track_id])
-		   	if !(track.user_id == current_user.id)
-		   		redirect_to profile_path
-		   	end
+		   	redirect_to profile_path if track.nil? || !(track.user_id == current_user.id) 
 		end
 	   end
 end
