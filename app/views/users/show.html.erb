@@ -23,9 +23,36 @@
 		</div>
 	</div>
 	<div>
-		<%= link_to 'Mobiless', mobile_path(track:"{\"approved\":true,\"city\":\"Porto\",\"country\":\"Portugal\",\"id\":1,\"name\":\"Trilho lindos\",\"private\":true,\"user_id\":1}")
-		%>
-		<% json = "{\"approved\":true,\"city\":\"Porto\",\"country\":\"Portugal\",\"id\":1,\"name\":\"Trilho lindos\",\"private\":true,\"user_id\":1}"
+		<%
+		json = "{
+	\"approved\":true,
+	\"city\": \"Porto\",
+	\"country\": \"Portugal\",
+	\"name\": \"Trilho da Boavista\",
+	\"private\":true,
+	\"user_id\": 1,
+	\"points\":[{\"latitude\": \"41.157671\",
+		\"longitude\": \"-8.627787\"},
+		{\"latitude\": \"41.158818\",
+		\"longitude\": \"-8.628495\"},
+		{\"latitude\": \"41.158725\",
+		\"longitude\": \"-8.62982\"},
+		{\"latitude\": \"41.157898\",
+		\"longitude\": \"-8.63034\"},
+		{\"latitude\": \"41.157009\",
+		\"longitude\": \"-8.629589\"},
+		{\"latitude\": \"41.15734\",
+		\"longitude\": \"-8.625716\"},
+		{\"latitude\": \"41.15709\",
+		\"longitude\": \"-8.624107\"},
+		{\"latitude\": \"41.156896\",
+		\"longitude\": \"-8.623055\"},
+		{\"latitude\": \"41.156702\",
+		\"longitude\": \"-8.6218\"},
+		{\"latitude\": \"41.156492\",
+		\"longitude\": \"-8.62077\"}
+	]
+}"
 		%>
 		<%= button_to("coiso", mobile_path(:track => json))%>
 	</div>

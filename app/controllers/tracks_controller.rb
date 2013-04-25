@@ -1,3 +1,4 @@
+require 'json'
 class TracksController < ApplicationController
     before_filter :authorize, only: [:show, :edit, :update, :index, :new]
   # GET /tracks
@@ -43,8 +44,29 @@ class TracksController < ApplicationController
   # POST /tracks.json
   def create
     #@track = Track.new(params[:track])
-    parsed_json = ActiveSupport::JSON.decode(params[:track])
-    raise parsed_json.inspect
+    received_track = json_parser(params[:track])
+
+    #points = received_track["points"]
+    #raise received_track["points"].inspect
+    #pont = points.to_s
+
+    #raise pont.inspect
+
+    #objArray = JSON.parse(pont)
+    #raise objArray.inspect
+
+    #puts "-----------------------------------!-----------------------"
+    #objArray.each do |item|
+    #  puts item
+    #end
+    #parsed_array = json_array_parser(received_track["points"])
+    
+    @track = Track.new(name:received_track["name"], city:received_track["city"], 
+      country: received_track["country"], user_id:received_track["user_id"],
+      private: received_track["private"], approved: received_track["approved"])
+    @track.points.build(received_track["points"])
+
+
     respond_to do |format|
       if @track.save
         format.html { redirect_to @track, notice: 'Track was successfully created.' }
