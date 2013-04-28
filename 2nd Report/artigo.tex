@@ -16,7 +16,6 @@
 % geometry package
 \usepackage[outer=20mm,inner=30mm,vmargin=20mm,includehead,includefoot,headheight=15pt]{geometry}
 
-
 %% space between columns
 \columnsep 10mm
 
@@ -83,7 +82,7 @@ Com uma interface limpa e amiga do utilizador, o JogginGo! é uma aplicação We
 
 Os sistemas GPS (\emph{Global Positioning System}) são responsáveis pela recolha, em tempo real, da posição de um determinado dispositivo no mundo. Actualmente um sistema GPS é altamente fiável, garantindo com enorme exactidão a posição, em formato de coordenadas, num mapa previamente inserido. Para além da posição, através de um GPS é possível calcular dados como velocidade média, velocidade instantânea ou até o relevo.
 Por outro lado, assistimos a um evoluir sistemático da utilização de dispositivos móveis, tais como os \emph{smartphones}. A cada dia, a sua utilização é mais massificada, já que são dispositivos com alta mobilidade e performance, que permitem aceder à internet em qualquer lado, a qualquer altura. Aproveitando as suas capacidades técnicas, uma percentagem altamente elevada destes dispositivos incluem sensores GPS. 
-É através deste princípio que surge o \textit{"JogginGo!"}. Utilizando as capacidades de um dispositivo móvel Android, um \emph{jogger} inicia o seu percurso, e automaticamente a aplicação móvel recolhe, em intervalos de tempo definidos, a sua posição actual. Esta informação é guardada em formato XML, e no final do percurso existe assim um conjunto estruturado de informação que é depois sincronizada com o \emph{webservice}. Recorrendo à interface web, o jogger pode ver todos os seus percursos e respectivos tempos e outra informação como, por exemplo, a velocidade média calculada com base na distância percorrida.
+É através deste princípio que surge o \textit{"JogginGo!"}. Utilizando as capacidades de um dispositivo móvel Android, um \emph{jogger} inicia o seu percurso, e automaticamente a aplicação móvel recolhe, em intervalos de tempo definidos, a sua posição actual. Esta informação é guardada em formato JSON, e no final do percurso existe assim um conjunto estruturado de informação que é depois sincronizada com o \emph{webservice}. Recorrendo à interface web, o jogger pode ver todos os seus percursos e respectivos tempos e outra informação como, por exemplo, a velocidade média calculada com base na distância percorrida.
 Para além desta introdução, onde se caracterizou o problema abordado
 por este projecto, refere-se na secção \ref{sec:estarte} o
 estado da arte, onde são descritos os trabalhos relacionados com a
@@ -127,25 +126,57 @@ Para o uso da plataforma, qualquer utilizador necessita de ter um email válido,
 \end{itemize}
 
 \section{Arquitectura da solução}
-Tal como temos vindo a mostrar ao longo do desenvolvimento do projecto, um dos principais problemas prende-se no armazenamento e estruturação dos dados, para que sejam facilmente interpretáveis. Para responder a este problema, optámos por utilizar uma linguagem de marcação (XML) como base para a estruturação dos dados. No entanto, cada documento XML, que contém a informação de cada corrida, tem que guardar dados relativos ao utilizador, como o seu id, e dados da própria localização da corrida. De seguida, apresentamos a nossa solução para este problema.
+Tal como temos vindo a mostrar ao longo do desenvolvimento do projecto, um dos principais problemas prende-se no armazenamento e estruturação dos dados, para que sejam facilmente interpretáveis. Para responder a este problema, optámos por utilizar uma linguagem de marcação (JSON) como base para a estruturação dos dados. No entanto, cada documento JSON, que contém a informação de cada corrida, tem que guardar dados relativos ao utilizador, como o seu id, e dados da própria localização da corrida. De seguida, apresentamos a nossa solução para este problema.
 
-INTRODUZIR O XML LINDO AQUI
+\begin{lstlisting}
+{
+"approved": false,
+"city": "Porto",
+"country": "Portugal",
+"name": "Trilho da Boavista"
+"private": true,
+"user_id": 1
+"initial_time": "2013:1:1:20:15:1:986",
+"final_time": "2013:1:1:20:47:34:074",
+"points":[
+   {"latitude": "41.157671",
+   "longitude": "-8.627787"},
+   "latitude": "41.158818",
+    longitude": "-8.628495"},
+   {"latitude": "41.158725",
+   "longitude": "-8.62982"},
+   {"latitude": "41.157898",
+   "longitude": "-8.63034"},
+   {"latitude": "41.157009",
+   "longitude": "-8.62958"},
+   {"latitude": "41.15734",
+   "longitude": "-8.62571"},
+   {"latitude": "41.15709",
+   "longitude": "-8.62410"},
+   {"latitude": "41.156896",
+   "longitude": "-8.62305"},
+   {"latitude": "41.156702",
+   "longitude": "-8.6218",
+   {"latitude": "41.156492",
+   "longitude": "-8.62077"} ]
+}
+\end{lstlisting}
 
-Explicando melhor, este documento é um exemplo de uma representação de um percurso feito por um utilizador, neste caso, o utilizador com o \textit{user\_id} igual a 1. Há vários campos que descodificamos facilmente o seu significado, como \textit{city}, que representa a cidade onde foi feita a corrida, o \textit{name}, que é o nome que o utilizador deu à sua corrida, ou mesmo os campos referentes ao tempo, que tem tempo inicial e final. No entanto, viremos a nossa atenção para os campos \textit{approved} e \textit{private}, com o valor \textit{false} e \textit{true} respectivamente. Por defeito, qualquer corrida criada por um utilizador tem o valor tem esses valores para os campos referidos anteriormente. Isto foi uma implementação para diferenciar os trilhos que são privados, os que são privados à espera de aprovação para serem públicos, e os públicos. Ou seja, quando um user cria um trilho, \textit{approved} e \textit{private} tomam os valores \textit{false} e \textit{true}, respectivamente. Após isso, o utilizador pode pretender que o seu trilho seja passado para a funcionalidade \textit{Test you limits}. Assim, \textit{private} passa a valer \textit{true}. No entanto, \textit{approved} continua com o valor booleano para falso. Isto porque esse trilho ainda necessida de aprovação de um moderador para que passe a público. Se for aprovado, \textit{approved} passa a \textit{true} e o trilho passa a ser público. Caso contrário \textit{approved} mantém o valor \textit{false}, e \textit{private} é alterado para \textit{true}, exactamente igual ao momento da sua criação.
-Outra particularidade deste documento XML é a existência de um um \textit{array} de pontos. Cada posição do \textit{array} é um objecto JSON que contém a latitude e a longitude de cada ponto recolhido pelo dispositivo móvel.
-Este documento XML visa resolver o problema de estruturação da informação a ser trocada entre o dispositivo móvel e o \textit{webservice}. 
+Explicando melhor, este documento é um exemplo de uma representação de um percurso feito por um utilizador, neste caso, o utilizador com o \textit{user\_id} igual a 1. Há vários campos que descodificamos facilmente o seu significado, como \textit{city}, que representa a cidade onde foi feita a corrida, o \textit{name}, que é o nome que o utilizador deu à sua corrida, ou mesmo os campos referentes ao tempo, que tem tempo inicial e final, com o formato "ano:mês:dia:hora:minuto:segundo:milésimo". No entanto, viremos a nossa atenção para os campos \textit{approved} e \textit{private}, com o valor \textit{false} e \textit{true} respectivamente. Por defeito, qualquer corrida criada por um utilizador tem o valor tem esses valores para os campos referidos anteriormente. Isto foi uma implementação para diferenciar os trilhos que são privados, os que são privados à espera de aprovação para serem públicos, e os públicos. Ou seja, quando um user cria um trilho, \textit{approved} e \textit{private} tomam os valores \textit{false} e \textit{true}, respectivamente. Após isso, o utilizador pode pretender que o seu trilho seja passado para a funcionalidade \textit{Test you limits}. Assim, \textit{private} passa a valer \textit{true}. No entanto, \textit{approved} continua com o valor booleano para falso. Isto porque esse trilho ainda necessida de aprovação de um moderador para que passe a público. Se for aprovado, \textit{approved} passa a \textit{true} e o trilho passa a ser público. Caso contrário \textit{approved} mantém o valor \textit{false}, e \textit{private} é alterado para \textit{true}, exactamente igual ao momento da sua criação.
+Outra particularidade deste documento JSON é a existência de um um \textit{array} de pontos. Cada posição do \textit{array} é um objecto JSON que contém a latitude e a longitude de cada ponto recolhido pelo dispositivo móvel.
+Este documento JSON visa resolver o problema de estruturação da informação a ser trocada entre o dispositivo móvel e o \textit{webservice}. 
 
 \section{Trabalho desenvolvido}\label{sec:trabalhodesenvolvido}
 
 \subsection{Aplicação Android}
 
 Até este momento, dada a preparação do \textit{webservice} para receber e tratar os dados, a aplicação Android encontra-se numa fase algo rudimentar. No entanto, já está desenvolvido um protótipo que recolhe as coordenadas \textit{GPS} e as apresenta no ecrã, e que permite também visualizar um mapa recorrendo à \emph{API Google Maps}, ainda sem ligação às coordenadas obtidas.
-O trabalho a continuar passa pela automatização da recolha de coordenadas ao longo de intervalos de tempo, apresentar o mapa centrado nestas mesmas coordenadas, desenhar o percurso até lá, e guardar toda esta informação em formato XML para que possa depois ser analizado e sincronizado com o  \textit{webservice}. Para isto, terá também de ser desenvolvida a componente de autenticação da aplicação com o  \textit{webservice}.
+O trabalho a continuar passa pela automatização da recolha de coordenadas ao longo de intervalos de tempo, apresentar o mapa centrado nestas mesmas coordenadas, desenhar o percurso até lá, e guardar toda esta informação em formato JSON para que possa depois ser analizado e sincronizado com o  \textit{webservice}. Para isto, terá também de ser desenvolvida a componente de autenticação da aplicação com o  \textit{webservice}.
 Depois deste trabalho, é intenção avançar para a componente social da aplicação, podendo partilhar a partir do  \textit{smartphone} as informações nas redes sociais.
 
 \subsection{Webservice}
 
-A plataforma online que faz a ponte entre o sistema e o utilizador, encontra-se em desenvolvimento, disponibilizando já aos utilizadores registados algumas funcionalidade importantes, que servem de base para o correcto funcionamento do \textit{JogginGo!}. Entre as quais, destacamos a possibilidade que um utilizador registado tem de visualizar os seus percursos, assim como a visualização de cada percurso no mapa  recorrendo à \emph{API Google Maps}. Para além disso, já é possível, através de um dispositivo móvel, enviar para o \textit{webservice} as informações de um percurso feito por um jogger, usando a estrutura do documento XML descrita anteriormente.
+A plataforma online que faz a ponte entre o sistema e o utilizador, encontra-se em desenvolvimento, disponibilizando já aos utilizadores registados algumas funcionalidade importantes, que servem de base para o correcto funcionamento do \textit{JogginGo!}. Entre as quais, destacamos a possibilidade que um utilizador registado tem de visualizar os seus percursos, assim como a visualização de cada percurso no mapa  recorrendo à \emph{API Google Maps}. Para além disso, já é possível, através de um dispositivo móvel, enviar para o \textit{webservice} as informações de um percurso feito por um jogger, usando a estrutura do documento JSON descrita anteriormente.
 
 
 \section{Conclusões}\label{sec:conclusions}
@@ -155,11 +186,11 @@ Posto toda a problemática, resolvemos dividir o desenvolvimento em três fases 
 
 \begin{itemize}
 \item \textbf{Recolha de requisitos} -- Nesta etapa, que já está concluída, foi feito um levantamento de todos os requisitos necessários para a correcta implementação desta aplicação. Foi feito um estudo de todas as tecnologias existentes a fim de escolher aquela que melhor preenchesse o requisitos da aplicação.
-\item \textbf{Recolha dos dados e solução do problema} -- Nesta fase, que foi das que tem merecido até à data mais atenção da nossa parte, foi definido um modelo XML final para resolver o problema de estruturação de informação e da sua respectiva transferência entre dispositivo móvel e o \textit{webservice}. A recolha dos dados é em tempo real e estará finalizada aquando da finalização do desenvolvimento da aplicação móvel, que já está em curso. Isto deve-se ao facto de o JogginGo! não utilizar nenhum dataset existente, mas sim, usar a sua aplicação móvel para a recolha dos próprios elementos.
-\item \textbf{Análise dos dados e desenvolvimento da plataforma}  -- Nesta terceira etapa pretende-se fazer a análise dos documentos XML recebidos em ambos os terminais, e desenvolver a plataforma para que possa ser usada pelo utilizador final.
+\item \textbf{Recolha dos dados e solução do problema} -- Nesta fase, que foi das que tem merecido até à data mais atenção da nossa parte, foi definido um modelo JSON final para resolver o problema de estruturação de informação e da sua respectiva transferência entre dispositivo móvel e o \textit{webservice}. A recolha dos dados é em tempo real e estará finalizada aquando da finalização do desenvolvimento da aplicação móvel, que já está em curso. Isto deve-se ao facto de o JogginGo! não utilizar nenhum dataset existente, mas sim, usar a sua aplicação móvel para a recolha dos próprios elementos.
+\item \textbf{Análise dos dados e desenvolvimento da plataforma}  -- Nesta terceira etapa pretende-se fazer a análise dos documentos JSON recebidos em ambos os terminais, e desenvolver a plataforma para que possa ser usada pelo utilizador final.
 \end{itemize}
 
-No fim destas três etapas, pretendemos ter uma plataforma pronta a usar em qualquer parte do Mundo, usando documentos XML como base para a troca de informação entre 	\textit{webservice} e os dispositivos móveis.
+No fim destas três etapas, pretendemos ter uma plataforma pronta a usar em qualquer parte do Mundo, usando documentos JSON como base para a troca de informação entre 	\textit{webservice} e os dispositivos móveis.
 
 
 \nocite{*}
