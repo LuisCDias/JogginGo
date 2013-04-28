@@ -20,4 +20,16 @@ Google.
 \newblock {Google Maps API}.
 \newblock \url{https://developers.google.com/maps/}.
 
+\bibitem{howtoactionbar}
+Xavi Rigau.
+\newblock {HowTo: ActionBarSherlock + MapFragment + ListFragment}.
+\newblock
+  \url{http://xrigau.wordpress.com/2012/03/22/howto-actionbarsherlock-mapfragment-listfragment/}.
+
+\bibitem{gpstutorial}
+Ravi Tamada.
+\newblock {Android GPS, Location Manager Tutorial}.
+\newblock
+  \url{http://www.androidhive.info/2012/07/android-gps-location-manager-tutorial/}.
+
 \end{thebibliography}
