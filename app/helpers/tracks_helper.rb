@@ -7,8 +7,4 @@ module TracksHelper
 	def json_parser(json)
 		ActiveSupport::JSON.decode(json)
 	end
-
-	def json_array_parser(json)
-		ActiveSupport::JSON.parse(json)
-	end
 end

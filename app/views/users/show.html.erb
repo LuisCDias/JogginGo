@@ -30,7 +30,8 @@
 	\"country\": \"Portugal\",
 	\"name\": \"Trilho da Boavista\",
 	\"private\":true,
-	\"user_id\": 1,
+	\"initial_time\": \"2013:1:1:20:15:1:987\",
+	\"final_time\": \"2013:1:1:20:15:1:987\",
 	\"points\":[{\"latitude\": \"41.157671\",
 		\"longitude\": \"-8.627787\"},
 		{\"latitude\": \"41.158818\",
@@ -54,6 +55,6 @@
 	]
 }"
 		%>
-		<%= button_to("coiso", mobile_path(:track => json))%>
+		<%= button_to("Sync mobile", mobile_path(:track => json))%>
 	</div>
 </div>

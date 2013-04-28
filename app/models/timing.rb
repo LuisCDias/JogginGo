@@ -5,7 +5,7 @@
 #  id           :integer          not null, primary key
 #  initial_time :datetime
 #  final_time   :datetime
-#  global_time  :datetime
+#  global_time  :string
 #  user_id      :integer
 #  track_id     :integer
 #  created_at   :datetime         not null
