@@ -134,6 +134,15 @@ Explicando melhor, este documento é um exemplo de uma representação de um per
 Outra particularidade deste documento XML é a existência de um um \textit{array} de pontos. Cada posição do \textit{array} é um objecto JSON que contém a latitude e a longitude de cada ponto recolhido pelo dispositivo móvel.
 Este documento XML visa resolver o problema de estruturação da informação a ser trocada entre o dispositivo móvel e o \textit{webservice}. 
 
+\section{Trabalho desenvolvido}\label{sec:trabalhodesenvolvido}
+
+\subsection{Aplicação Android}
+
+Até este momento, dada a preparação do  \textit{webservice} para receber e tratar os dados, a aplicação Android encontra-se numa fase algo rudimentar. No entanto, já está desenvolvido um protótipo que recolhe as coordenadas  \textit{GPS} e as apresenta no ecrã, que permite também visualizar um mapa recorrendo à \emph{API Google Maps}, ainda sem ligação às coordenadas obtidas.
+O trabalho a continuar passa pela automatização da recolha de coordenadas ao longo de intervalos de tempo, apresentar o mapa centrado nestas mesmas coordenadas e desenhar o percurso até lá, e guardar toda esta informação em formato XML para que possa depois ser analizado e sincronizado com o  \textit{webservice}. Para isto, terá também de ser desenvolvida a componente de autenticação da aplicação com o  \textit{webservice}.
+Depois deste trabalho, é intenção avançar para a componente social da aplicação, podendo partilhar a partir do  \textit{smartphone} as informações nas redes sociais.
+
+
 \section{Conclusões}\label{sec:conclusions}
 
 Neste artigo abordou-se o desenvolvimento de uma aplicação que permita a monitorização de um \textit{jogger} ao longo de um percurso. Aliado à sua vertente social, esta plataforma permite fazer a ponte entre a individualidade de fazer \textit{jogging} com a possibilidade de competir saudavelmente contra outros atletas.
