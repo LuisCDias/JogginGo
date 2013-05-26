@@ -1,0 +1,16 @@
+\begin{thebibliography}{1}
+
+\bibitem{apontamentos}
+Apontamentos aulas teóricas.
+
+\bibitem{book2}
+Stuart~Russell e~Peter~Norvig.
+\newblock {\em Artificial Intelligence: A Modern Approach}.
+\newblock Dezembro 2009.
+
+\bibitem{book1}
+Ram~D. Sriram.
+\newblock {\em Intelligent Systems for Engineering}.
+\newblock Springer, Agosto 1997.
+
+\end{thebibliography}
