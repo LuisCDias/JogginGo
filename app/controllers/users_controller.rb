@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 			@waypoints = waypoints_to_addresses(track.points)
 			@first = @waypoints.shift
 			@last = @waypoints.pop
+			@all = track.timings
 		else
 			#tratar os casos em que o user não tem nenhuma track
 			@waypoints = []

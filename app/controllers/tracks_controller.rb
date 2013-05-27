@@ -44,14 +44,6 @@ class TracksController < ApplicationController
   # POST /tracks.json
   def create
     received_track = json_parser(params[:track])
-    # Isto eventualmente vai guardar os tempos
-    #time1 = Time.local(2013,1,1,20,0,1,0)
-    #time2 = Time.local(2013,1,1,20,25,1, 0)
-    #delta = time2-time1
-    #c = Time.at(delta).gmtime.strftime('%R:%S:%L')
-    #raise c.inspect
-
-    
 
     initial_time = received_track["initial_time"]
     m=initial_time.split(":")
