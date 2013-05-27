@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(:version => 20130305140302) do
   create_table "timings", :force => true do |t|
     t.datetime "initial_time"
     t.datetime "final_time"
-    t.datetime "global_time"
+    t.string   "global_time"
     t.integer  "user_id"
     t.integer  "track_id"
     t.datetime "created_at",   :null => false

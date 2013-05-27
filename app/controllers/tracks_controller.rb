@@ -44,19 +44,60 @@ class TracksController < ApplicationController
   # POST /tracks.json
   def create
     received_track = json_parser(params[:track])
-    time1 = Time.local(2013,1,1,20,0,1,987)
-    time2 = Time.local(2013,1,1,20,25,1, 0)
-    delta = time2-time1
+    # Isto eventualmente vai guardar os tempos
+    #time1 = Time.local(2013,1,1,20,0,1,0)
+    #time2 = Time.local(2013,1,1,20,25,1, 0)
+    #delta = time2-time1
+    #c = Time.at(delta).gmtime.strftime('%R:%S:%L')
+    #raise c.inspect
+
+    
+
+    initial_time = received_track["initial_time"]
+    m=initial_time.split(":")
+    year = m[0].to_i
+    month = m[1].to_i
+    day = m[2].to_i
+    hour = m[3].to_i
+    minute = m[4].to_i
+    second = m[5].to_i
+    mil = m[6].to_i
+
+    initial = Time.local(year,month,day,hour,minute,second,mil)
+
+
+    final_time = received_track["final_time"]
+    m1=final_time.split(":")
+    year = m1[0].to_i
+    month = m1[1].to_i
+    day = m1[2].to_i
+    hour = m1[3].to_i
+    minute = m1[4].to_i
+    second = m1[5].to_i
+    mil = m1[6].to_i
+    
+    final = Time.local(year,month,day,hour,minute,second,mil)
+
+    delta = final-initial
+
     c = Time.at(delta).gmtime.strftime('%R:%S:%L')
-    raise c.inspect
+    #raise c.inspect
+
+    timing = Timing.create(initial_time:initial,final_time:final, global_time:
+      c)
+
+    #raise timing.inspect
     @track = Track.new(name:received_track["name"], city:received_track["city"], 
       country: received_track["country"], user_id:received_track["user_id"],
       private: received_track["private"], approved: received_track["approved"])
     @track.points.build(received_track["points"])
+    @track.timings.build(initial_time:initial,final_time:final, global_time:
+      c)
+    @user = User.find(received_track["user_id"])
 
     respond_to do |format|
       if @track.save
-        format.html { redirect_to @track, notice: 'Track was successfully created.' }
+        format.html { redirect_to @user, notice: 'Track was successfully created.' }
         format.json { render json: @track, status: :created, location: @track }
       else
         format.html { render action: "new" }
