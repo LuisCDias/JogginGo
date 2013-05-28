@@ -73,10 +73,6 @@ class TracksController < ApplicationController
     delta = final-initial
 
     c = Time.at(delta).gmtime.strftime('%R:%S:%L')
-    #raise c.inspect
-
-    timing = Timing.create(initial_time:initial,final_time:final, global_time:
-      c)
 
     #raise timing.inspect
     @track = Track.new(name:received_track["name"], city:received_track["city"], 

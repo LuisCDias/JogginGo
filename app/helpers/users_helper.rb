@@ -10,8 +10,13 @@ module UsersHelper
 	def list_timing(obj)
 		s=""
 		obj.each_with_index do |tempo,i|
-			s+= (i+1).to_s + " - "+tempo.initial_time.to_s
+			s+= "<b>"+(i+1).to_s + "</b> - "+tempo.initial_time.to_s+ "<br>"
 		end
-		s
+		s.html_safe
+	end
+
+	def order(obj)
+		
+		
 	end
 end
