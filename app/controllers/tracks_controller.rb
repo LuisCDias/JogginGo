@@ -43,9 +43,8 @@ class TracksController < ApplicationController
   # POST /tracks
   # POST /tracks.json
   def create
+=begin
     received_track = json_parser(params[:track])
-
-    #raise received_track.inspect
     
     initial_time = received_track["initial_time"]
     m=initial_time.split(":")
@@ -76,15 +75,17 @@ class TracksController < ApplicationController
 
     c = Time.at(delta).gmtime.strftime('%R:%S:%L')
 
-    #raise timing.inspect
-    @track = Track.new(name:received_track["name"], city:received_track["city"], 
-      country: received_track["country"], user_id:received_track["user_id"],
-      private: received_track["private"], approved: received_track["approved"])
-    @track.points.build(received_track["points"])
-    @track.timings.build(initial_time:initial,final_time:final, global_time:
-      c)
-    @user = User.find(received_track["user_id"])
-
+    #@track = Track.new(name:received_track["name"], city:received_track["city"], 
+     # country: received_track["country"], user_id:received_track["user_id"],
+      #private: received_track["private"], approved: received_track["approved"])
+    #@track.points.build(received_track["points"])
+    #@track.timings.build(initial_time:initial,final_time:final, global_time:
+     # c)
+    #@user = User.find(received_track["user_id"])
+=end
+    @track = Track.new(name:"teste", city:"teste", 
+     country:"teste", user_id:"teste",
+      private: true, approved: false)
     respond_to do |format|
       if @track.save
         format.html { redirect_to @user, notice: 'Track was successfully created.' }
