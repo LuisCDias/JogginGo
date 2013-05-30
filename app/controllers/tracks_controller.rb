@@ -75,16 +75,16 @@ class TracksController < ApplicationController
 
     c = Time.at(delta).gmtime.strftime('%R:%S:%L')
 
-    #@track = Track.new(name:received_track["name"], city:received_track["city"], 
-     # country: received_track["country"], user_id:received_track["user_id"],
-      #private: received_track["private"], approved: received_track["approved"])
-    #@track.points.build(received_track["points"])
-    #@track.timings.build(initial_time:initial,final_time:final, global_time:
-     # c)
-    #@user = User.find(received_track["user_id"])
+    @track = Track.new(name:received_track["name"], city:received_track["city"], 
+      country: received_track["country"], user_id:received_track["user_id"],
+      private: received_track["private"], approved: received_track["approved"])
+    @track.points.build(received_track["points"])
+    @track.timings.build(initial_time:initial,final_time:final, global_time:
+      c)
+    @user = User.find(received_track["user_id"])
 =end
     @track = Track.new(name:"teste", city:"teste", 
-     country:"teste", user_id:"teste",
+     country:"teste", user_id:"1",
       private: true, approved: false)
     respond_to do |format|
       if @track.save
