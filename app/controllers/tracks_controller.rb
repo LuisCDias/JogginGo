@@ -45,7 +45,7 @@ class TracksController < ApplicationController
   def create
     received_track = json_parser(params[:track])
 
-    raise received_track.inspect
+    #raise received_track.inspect
     
     initial_time = received_track["initial_time"]
     m=initial_time.split(":")
