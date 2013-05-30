@@ -9,14 +9,14 @@ module UsersHelper
 
 	def list_timing(obj)
 		s=""
-		obj.each_with_index do |tempo,i|
-			s+= "<b>"+(i+1).to_s + "</b> - "+tempo.initial_time.to_s+ "<br>"
+		ordered = order(obj)
+		ordered.each_with_index do |tempo,i|
+			s+= "<b>"+(i+1).to_s + "</b> - "+tempo.global_time+ "<br>"
 		end
 		s.html_safe
 	end
 
 	def order(obj)
-		
-		
+		obj.sort_by { |i| i.global_time }
 	end
 end
