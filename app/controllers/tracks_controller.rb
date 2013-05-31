@@ -122,7 +122,6 @@ class TracksController < ApplicationController
         format.json { render json: @track.errors, status: :unprocessable_entity }
       end
     end
-  end
 
   # PUT /tracks/1
   # PUT /tracks/1.json
