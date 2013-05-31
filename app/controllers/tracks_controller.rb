@@ -83,11 +83,11 @@ class TracksController < ApplicationController
       country: params["country"], user_id:params["user_id"],
       private: params["private"], approved: params["approved"])
     @user = User.find(params["user_id"])
-=begin
+
     @track.points.build(params["points"])
     @track.timings.build(initial_time:initial,final_time:final, global_time:
       c)
-=end
+
     respond_to do |format|
       if @track.save
         format.html { redirect_to @user, notice: 'Track was successfully created.' }
