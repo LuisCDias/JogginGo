@@ -49,8 +49,6 @@ class TracksController < ApplicationController
     print "--------------------------------------------------------\n"
     print "--------------------------------------------------------\n"
     puts params["initial_time"]
-
-    raise params.inspect
     
     initial_time = params[:initial_time]
     m=initial_time.split(":")
