@@ -73,7 +73,7 @@ class TracksController < ApplicationController
     print "\n------------------------\n"
     print "private\n"
     print params["private"]
-    print "\n------------------------\n"
+    print "\n------------------------\n" 
 
     
     initial_time = params["initial_time"]
