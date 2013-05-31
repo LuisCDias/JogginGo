@@ -74,7 +74,7 @@ class TracksController < ApplicationController
     print "private\n"
     print params["private"]
     print "\n------------------------\n" 
-=end
+
     
     initial_time = params["initial_time"]
     m=initial_time.split(":")
@@ -109,11 +109,15 @@ class TracksController < ApplicationController
       country: params["country"], user_id:params["user_id"],
       private: params["private"], approved: params["approved"])
     @user = User.find(params["user_id"])
+=end
 =begin
     @track.points.build(params["points"])
     @track.timings.build(initial_time:initial,final_time:final, global_time:
       c)
 =end
+    @track = Track.new(name:params["name"], city:params["city"], 
+      country: params["country"], user_id:params["user_id"],
+      private: params["private"], approved: params["approved"])
     respond_to do |format|
       if @track.save
         format.html { redirect_to @user, notice: 'Track was successfully created.' }
