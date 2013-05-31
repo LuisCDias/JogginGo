@@ -49,6 +49,32 @@ class TracksController < ApplicationController
     print "--------------------------------------------------------\n"
     print "--------------------------------------------------------\n"
     print params[:track]
+    received_track = json_parser(params[:track])
+    print "initial_time\n"
+    print received_track["initial_time"]
+    print "\n------------------------\n"
+    print "final_time\n"
+    print received_track["final_time"]
+    print "\n------------------------\n"
+    print "user_id\n"
+    print received_track["user_id"]
+    print "\n------------------------\n"
+    print "approved\n"
+    print received_track["approved"]
+    print "\n------------------------\n"
+    print "name\n"
+    print received_track["name"]
+    print "\n------------------------\n"
+    print "city\n"
+    print received_track["city"]
+    print "\n------------------------\n"
+    print "country\n"
+    print received_track["country"]
+    print "\n------------------------\n"
+    print "private\n"
+    print received_track["private"]
+    print "\n------------------------\n"
+
 =begin
 
     received_track = json_parser(params[:track])
