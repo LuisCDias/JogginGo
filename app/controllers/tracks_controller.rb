@@ -57,7 +57,7 @@ class TracksController < ApplicationController
     print params["final_time"]
     print "\n------------------------\n"
     print "user_id\n"
-    print params["user_id"]
+    print params["user_id"] 
     print "\n------------------------\n"
     print "approved\n"
     print params["approved"]
