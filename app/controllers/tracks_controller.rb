@@ -74,12 +74,12 @@ class TracksController < ApplicationController
     delta = final-initial
 
     c = Time.at(delta).gmtime.strftime('%R:%S:%L')
-=end
+
     @track = Track.new(name:received_track["name"], city:received_track["city"], 
       country: received_track["country"], user_id:received_track["user_id"],
       private: received_track["private"], approved: received_track["approved"])
     @user = User.find(received_track["user_id"])
-=begin
+
     @track.points.build(received_track["points"])
     @track.timings.build(initial_time:initial,final_time:final, global_time:
       c)
@@ -90,13 +90,17 @@ class TracksController < ApplicationController
       private: true, approved: false)
 =end
     respond_to do |format|
-      if @track.save
+      if true
+        format.json{ render json: @user, status: :created}
+      end
+=begin     if @track.save
         format.html { redirect_to @user, notice: 'Track was successfully created.' }
         format.json { render json: @track, status: :created, location: @track }
       else
         format.html { render action: "new" }
         format.json { render json: @track.errors, status: :unprocessable_entity }
       end
+=end
     end
   end
 
