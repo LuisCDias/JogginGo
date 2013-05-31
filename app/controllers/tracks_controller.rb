@@ -114,7 +114,8 @@ class TracksController < ApplicationController
     @track.timings.build(initial_time:initial,final_time:final, global_time:
       c)
 =end
-    if @track.save
+    respond_to do |format|
+      if @track.save
         format.html { redirect_to @user, notice: 'Track was successfully created.' }
         format.json { render json: @track, status: :created, location: @track }
       else
@@ -122,7 +123,7 @@ class TracksController < ApplicationController
         format.json { render json: @track.errors, status: :unprocessable_entity }
       end
     end
-
+  end
   # PUT /tracks/1
   # PUT /tracks/1.json
   def update
