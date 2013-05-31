@@ -48,33 +48,9 @@ class TracksController < ApplicationController
     print "--------------------------------------------------------\n"
     print "--------------------------------------------------------\n"
     print "--------------------------------------------------------\n"
-    print params[:track]
-    
-=begin    print "initial_time\n"
-    print params["initial_time"]
-    print "\n------------------------\n"
-    print "final_time\n"
-    print params["final_time"]
-    print "\n------------------------\n"
-    print "user_id\n"
-    print params["user_id"] 
-    print "\n------------------------\n"
-    print "approved\n"
-    print params["approved"]
-    print "\n------------------------\n"
-    print "name\n"
-    print params["name"]
-    print "\n------------------------\n"
-    print "city\n"
-    print params["city"]
-    print "\n------------------------\n"
-    print "country\n"
-    print params["country"]
-    print "\n------------------------\n"
-    print "private\n"
-    print params["private"]
-    print "\n------------------------\n" 
-=end
+    print params
+
+    raise params.inspect
     
     initial_time = params[:initial_time]
     m=initial_time.split(":")

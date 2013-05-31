@@ -57,7 +57,14 @@
 		\"longitude\": \"-8.62077\"}
 	]
 }"
+
+	json2 = "{\"approved\"=>false, 
+\"intial_time\"=>\"2013:1:1:20:10:1:987\", 
+\"name\"=>\"asd\", \"user_id\"=>1, \"final_time\"=>\"2013:1:1:20:15:1:0\", 
+\"private\"=>true, \"country\"=>\"Portugal\", \"city\"=>\"Porto\", 
+\"track\"=>{\"city\"=>\"Porto\", \"country\"=>\"Portugal\", \"name\"=>\"asd\", 
+\"user_id\"=>1, \"private\"=>true, \"approved\"=>false}}"
 		%>
-		<%= button_to("Sync mobile", mobile_path(:track => json))%>
+		<%= button_to("Sync mobile", mobile_path(:track => json2))%>
 	</div>
 </div>
