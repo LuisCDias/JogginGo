@@ -43,7 +43,14 @@ class TracksController < ApplicationController
   # POST /tracks
   # POST /tracks.json
   def create
+    print "--------------------------------------------------------\n"
+    print "--------------------------------------------------------\n"
+    print "--------------------------------------------------------\n"
+    print "--------------------------------------------------------\n"
+    print "--------------------------------------------------------\n"
+    print params[:track]
 =begin
+
     received_track = json_parser(params[:track])
     
     initial_time = received_track["initial_time"]
