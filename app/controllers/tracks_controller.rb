@@ -50,7 +50,7 @@ class TracksController < ApplicationController
     print "--------------------------------------------------------\n"
     print params[:track]
     
-    print "initial_time\n"
+=begin    print "initial_time\n"
     print params["initial_time"]
     print "\n------------------------\n"
     print "final_time\n"
@@ -74,7 +74,7 @@ class TracksController < ApplicationController
     print "private\n"
     print params["private"]
     print "\n------------------------\n" 
-
+=end
     
     initial_time = params["initial_time"]
     m=initial_time.split(":")
