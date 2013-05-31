@@ -63,7 +63,7 @@ class TracksController < ApplicationController
     initial = Time.local(year,month,day,hour,minute,second,mil)
 
 
-    final_time = params[:initial_time]
+    final_time = params[:final_time]
     m1=final_time.split(":")
     year = m1[0].to_i
     month = m1[1].to_i
