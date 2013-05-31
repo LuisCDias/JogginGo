@@ -75,11 +75,8 @@ class TracksController < ApplicationController
     print params["private"]
     print "\n------------------------\n"
 
-=begin
-
-    received_track = json_parser(params[:track])
     
-    initial_time = received_track["initial_time"]
+    initial_time = params["initial_time"]
     m=initial_time.split(":")
     year = m[0].to_i
     month = m[1].to_i
@@ -92,7 +89,7 @@ class TracksController < ApplicationController
     initial = Time.local(year,month,day,hour,minute,second,mil)
 
 
-    final_time = received_track["final_time"]
+    final_time = params["final_time"]
     m1=final_time.split(":")
     year = m1[0].to_i
     month = m1[1].to_i
@@ -108,32 +105,22 @@ class TracksController < ApplicationController
 
     c = Time.at(delta).gmtime.strftime('%R:%S:%L')
 
-    @track = Track.new(name:received_track["name"], city:received_track["city"], 
-      country: received_track["country"], user_id:received_track["user_id"],
-      private: received_track["private"], approved: received_track["approved"])
-    @user = User.find(received_track["user_id"])
-
-    @track.points.build(received_track["points"])
+    @track = Track.new(name:params["name"], city:params["city"], 
+      country: params["country"], user_id:params["user_id"],
+      private: params["private"], approved: params["approved"])
+    @user = User.find(params["user_id"])
+=begin
+    @track.points.build(params["points"])
     @track.timings.build(initial_time:initial,final_time:final, global_time:
       c)
-    
-
-    @track = Track.new(name:"teste", city:"teste", 
-     country:"teste", user_id:"1",
-      private: true, approved: false)
 =end
-    respond_to do |format|
-      if true
-        format.json{ render json: @user, status: :created}
-      end
-=begin     if @track.save
+    if @track.save
         format.html { redirect_to @user, notice: 'Track was successfully created.' }
         format.json { render json: @track, status: :created, location: @track }
       else
         format.html { render action: "new" }
         format.json { render json: @track.errors, status: :unprocessable_entity }
       end
-=end
     end
   end
 
