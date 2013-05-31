@@ -48,7 +48,7 @@ class TracksController < ApplicationController
     print "--------------------------------------------------------\n"
     print "--------------------------------------------------------\n"
     print "--------------------------------------------------------\n"
-    print params
+    puts params["initial_time"]
 
     raise params.inspect
     
