@@ -74,7 +74,7 @@ Para além da componente académica, o desenvolvimento de um produto útil e enq
 \textbf{Java (Android):}
 \\
 
-As tarefas disponibilizadas pela componente Java estão relacionadas com a aplicação Android. Esta é a responsável pela ligação com a parte funcionalmente mais importante do sistema, que é a captura de coordenadas durante a corrida de um utilizador. Assim que este termina a corrida e informa a aplicação que deseja sincronizar os dados, estes são enviados para a plataforma web.
+As tarefas disponibilizadas pela componente Java estão relacionadas com a aplicação Android. Esta é a responsável pela ligação com a parte funcionalmente mais importante do sistema, que é a captura de coordenadas durante a corrida de um utilizador. Assim que este termina a corrida, é notificado sobre os percursos que tem por sincronizar, podendo enviar para o webservice apenas alguns deles, ou todos de uma só vez.
 
 \begin{itemize}
   \item \textit{GPSTracker:} Permite obter as coordenadas actuais do dispositivo móvel do utilizador. É, assim, responsável por comunicar estas alterações à aplicação, com um intervalo definido de 1 minuto, para que estas coordenadas possam ser guardadas para futura sincronização;
@@ -83,6 +83,8 @@ As tarefas disponibilizadas pela componente Java estão relacionadas com a aplic
 
  \item \textit{MapWithStats} - Depois de terminar a corrida, o utilizador poderá ver um mapa, recorrendo à  \textit{API }do \textit{Google Maps}, com o percurso efectuado. Poderá também ver um conjunto de estatísticas referentes à corrida, como velocidade média, distância percorrida e tempo total.
 
+\item \textit {OAuth 2.0} - Para que fosse possível obter os percursos do atleta no dispositivo móvel, assim como fazer a sincronização dos mesmos para o \textit{WebService}, foi necessária a implementação de um módulo \textit{OAuth} que possibilitasse o login na plataforma online, através do \textit{smartphone}.
+\\
 \end{itemize}
  
 \textbf{Ruby on Rails:}
@@ -150,7 +152,7 @@ Foi utilizado Javascript principalmente para uma melhor interacção do utilizad
 
 Para os diferentes módulos, foram usadas diferentes tecnologias e ambientes.
 
-O \textit{Webservice} foi desenvolvido em utilizando a tecnologia Ruby on Rails, com a ajuda da API do Google Maps, programado no editor de texto Sublime Text, recorrendo a um servidor local (localhost). Mais tarde, fizemos a migração da plataforma para o sistema de cloud, Heroku.
+O \textit{Webservice} foi desenvolvido utilizando a tecnologia Ruby on Rails, com a ajuda da API do Google Maps, programado no editor de texto Sublime Text, recorrendo a um servidor local (localhost). Mais tarde, fizemos a migração da plataforma para o sistema de cloud, Heroku.
 
 Relativamente ao terminal móvel, foi desenvolvida em Java (Android), recorrendo ao IDE Eclipse. 
 
@@ -171,7 +173,7 @@ Para desenvolvimento futuro, seria interessante o desenvolvimento de algumas fun
 
 \section{Melhoramentos}
 
-Há alguns melhoramentos que tínhamos em vista, no caso de ter existido mais tempo para a sua implementação. Dos mais importante, destacaríamos o melhoramento da interface gráfica, que neste momento se encontra pouco cuidada pois decidimos dar mais ênfase às funcionalidades do que à usabilidade.
+Há alguns melhoramentos que tínhamos em vista, no caso de ter existido mais tempo para a sua implementação. Dos mais importante, destacaríamos o melhoramento da interface gráfica, que de momento se encontra pouco cuidada pois decidimos dar mais ênfase às funcionalidades do que à usabilidade.
 
 Outro dos melhoramentos que achamos que traría mais valor ao nosso projecto, era a inclusão da funcionalidade “Test your Limits”, que permitiria a um qualquer atleta registado, competir num percurso pré-definido pela plataforma.
 
@@ -194,6 +196,8 @@ Outro dos melhoramentos que achamos que traría mais valor ao nosso projecto, er
 \item Android GPS, \emph{http://www.androidhive.info/2012/07/android-gps-location-manager-tutorial/}, Maio 2013
 
 \item Google Maps Android API V2, \emph{https://developers.google.com/maps/documentation/android/start\_the\_google\_maps\_api\_key}, Maio 2013
+
+\item OPro Oauth 2.0 API, \emph{https://github.com/opro/opro}
 
 \end{itemize}
 
