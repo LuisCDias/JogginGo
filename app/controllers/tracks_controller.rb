@@ -5,7 +5,7 @@ class TracksController < ApplicationController
   # GET /tracks
   # GET /tracks.json
   def index
-    @tracks = Track.all
+    @tracks = Track.find_all_by_user_id(current_user)
 
     respond_to do |format|
       format.html # index.html.erb
