@@ -1,7 +1,9 @@
 # encoding: UTF-8
 require 'json'
 class TracksController < ApplicationController
-    before_filter :authorize, only: [:show, :edit, :update, :index, :new]
+  before_filter :authorize, only: [:show, :edit, :update, :index, :new]
+  allow_oauth! 
+
   # GET /tracks
   # GET /tracks.json
   def index

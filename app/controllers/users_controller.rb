@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 	before_filter :already_signed, only:[:new, :create]
 	before_filter :administration, only: [:destroy]
 	before_filter :own_tracks, only: :show 
+	allow_oauth! 
 
 	def index
 		@title = "Members"
