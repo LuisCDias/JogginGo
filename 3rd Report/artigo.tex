@@ -1,0 +1,210 @@
+\documentclass[twocolumn,twoside,10pt,a4paper]{article}
+
+\usepackage[portuguese]{babel}  % portuguese
+\usepackage{graphicx}           % images: .png or .pdf w/ pdflatex; .eps w/ latex
+
+%% For iso-8859-1 (latin1), comment next line and uncomment the second line
+\usepackage[utf8]{inputenc}
+%\usepackage[latin1]{inputenc}
+
+\usepackage[T1]{fontenc}        % T1 fonts
+\usepackage{lmodern}            % fonts
+%\usepackage{times}              % PS fonts
+\usepackage{lastpage}           % to have lastpage in headers
+\usepackage{url}                % urls
+\usepackage{listings}
+% geometry package
+\usepackage[outer=20mm,inner=30mm,vmargin=20mm,includehead,includefoot,headheight=15pt]{geometry}
+
+%% space between columns
+\columnsep 10mm
+
+% avoid widows and orphans
+\clubpenalty=300
+\widowpenalty=300
+
+\usepackage[pdftex]{hyperref}
+\hypersetup{%
+    a4paper = true,              % use A4 paper 
+    bookmarks = true,            % make bookmarks 
+    colorlinks = true,           % false: boxed links; true: colored links
+    pdffitwindow = false,        % page fit to window when opened
+    pdfpagemode = UseNone,       % do not show bookmarks
+    pdfpagelayout = SinglePage,  % displays a single page
+    pdfpagetransition = Replace, % page transition
+    linkcolor=blue,              % hyperlink colors
+    urlcolor=blue,
+    citecolor=blue,
+    anchorcolor=green
+}
+
+\usepackage{indentfirst}       % indent also 1st paragraph
+
+\pagestyle{myheadings}         % Option to put page headers
+\markboth{{\small\it Exemplo de artigo em \LaTeX}}
+{{\small\it Grupo 10, \today}}
+
+%\hyphenation{}                  % explicit hyphenation
+
+% entities
+\newcommand{\class}[1]{{\normalfont\slshape #1\/}}
+\newcommand{\svg}{\class{SVG}}
+\newcommand{\scada}{\class{SCADA}}
+\newcommand{\scadadms}{\class{SCADA/DMS}}
+
+\title{JogginGo! }
+
+\author{Luís Carlos Moreira Dias\\
+\small Faculdade de Engenharia\\[-0.8ex]
+\small da Universidade do Porto\\[-0.8ex]
+\small R.\ Dr.\ Roberto Frias, 4200-465 Porto\\[-0.8ex]
+\small \texttt{ei08094@fe.up.pt}\\
+\and
+Luís Filipe Castanheira Gomes\\
+\small Faculdade de Engenharia\\[-0.8ex]
+\small da Universidade do Porto\\[-0.8ex]
+\small R.\ Dr.\ Roberto Frias, 4200-465 Porto\\[-0.8ex]
+\small \texttt{ei08169@fe.up.pt}
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\thispagestyle{plain} 
+
+\begin{abstract}
+Com uma interface limpa e amiga do utilizador, o JogginGo! é uma agregação entre aplicação \textit{Web} e \textit{mobile} que permite a gestão de todas as corridas feitas por qualquer utilizador registado. Cada corrida é tratada como um conjunto de coordenadas GPS (\textit{Global Positioning System}) recolhidas com recurso aos sensores de um dispositivo móvel. A cada minuto, intervalo de tempo definido, é recolhida a posição em que o atleta se encontra. No fim de cada corrida, o atleta pode visualizar os pontos que foram recolhidos, num mapa do Google Maps. Para além disso, pode também sincronizar as corridas para o servidor e o conjunto de pontos é assim representado visualmente na interface \textit{web}. Assim, o utilizador tem nas suas mãos uma plataforma que permite gerir todas as corridas, visualizando os seus percursos, a distância total percorrida e a velocidade média. O principal obstáculo desta aplicação foi encontrar uma estrutura de um documento estruturado que possibilitasse a troca de informação, de uma forma simples e compreensível, entre o terminal Android e o \textit{webservice}.
+\end{abstract}
+
+\section{Introdução}\label{sec:intro}
+
+Os sistemas GPS (\emph{Global Positioning System}) são responsáveis pela recolha, em tempo real, da posição de um determinado dispositivo no mundo. Actualmente um sistema GPS é altamente fiável, garantindo com enorme exactidão a posição, em formato de coordenadas, num mapa previamente inserido. Para além da posição, através de um GPS é possível calcular dados como velocidade média, velocidade instantânea ou até o relevo.
+Por outro lado, assistimos a um evoluir constante da utilização de dispositivos móveis, tais como os \emph{smartphones}. A cada dia, a sua utilização cresce, já que são dispositivos com alta mobilidade e performance, que permitem aceder à Internet em qualquer lado, a qualquer altura. Aproveitando as suas capacidades técnicas, uma percentagem altamente elevada destes dispositivos incluem sensores GPS. 
+É através deste princípio que surge o \textit{"JogginGo!"}. Utilizando as capacidades de um dispositivo móvel Android, um \emph{jogger} inicia o seu percurso, e automaticamente a aplicação móvel recolhe, em intervalos de tempo definidos, a sua posição actual. Esta informação é guardada em formato JSON, e no final do percurso existe assim um conjunto estruturado de informação que é depois sincronizada com o \emph{webservice}. Recorrendo à interface \textit{web}, o jogger pode ver todos os seus percursos e respectivos tempos e outra informação como, por exemplo, a velocidade média calculada com base na distância percorrida.
+Para além desta introdução, onde se caracterizou o problema abordado
+por este projecto, refere-se na secção \ref{sec:estarte} o
+estado da arte, onde são descritos os trabalhos relacionados com a
+captura de coordenadas em dispositivos móveis e a sua gestão e visualização na \textit{Web} para melhor enquadramento do leitor nesta temática.  Posteriormente, caracterizemos os requisitos de utilização da aplicação, arquitectura da solução, onde apresentamos a nossa solução para o problema de transmissão de informação entre os dois terminais (\textit{web} e \textit{moble}) e o trabalho desenvolvido.
+
+\section{Estado da Arte}\label{sec:estarte}
+
+Hoje em dia existem diversas soluções, apresentadas por empresas e \emph{developers} que trabalham na área das aplicações móveis, que fazem o \textit{tracking} da posição de um \emph{smartphone} com recurso aos sensores GPS, isto é, sensores de posicionamento que detectam a localização do \emph{smartphone} e cujos dados podem ser recolhidos e analisados posteriormente.
+
+\subsection{\emph{Tracking} em desportos}
+
+A mobilidade de um \emph{smartphone}, aliada ao constante movimento de um atleta de \emph{jogging}, faz com que o sector dos desportos em exteriores seja consideravelmente explorado.
+
+A evolução da \emph{web} e a transformação de aplicações \emph{desktop} em aplicações \emph{Web 2.0} criam o cenário ideal para a troca de dados entre aplicações móveis e \emph{webservices}.
+
+A constante necessidade de recorrer às redes sociais \emph{online}, partilhando informações e dados de uma forma simples e interactiva, faz também com que a transformação de actividades desportivas em actividades sociais esteja em constante crescendo e exploração.
+ 
+Encontramos assim aplicações que disponibilizam o \emph{tracking} de um atleta durante o desporto e permitem a partilha em redes sociais para que este possa partilhar a sua performance com amigos e, de forma indirecta, comparar com a prestação de outros nas suas actividades.
+
+\subsubsection{\emph{Sports Tracker}}
+
+Esta aplicação, da empresa \textit{Sports Tracking Technologies Ltd.}, permite, citando a sua página, "Transformar o seu \textit{smartphone} num computador de desporto social". Permite fazer o \textit{tracking} de um atleta em vários desportos, não sendo específico para o \textit{jogging}. 
+
+Tem como principais funcionalidades a análise da \textit{performance}, seguir o progresso de um atleta ao longo dos treinos, guardar os dados dos treinos, a utilização de mapas para melhor visualização por parte do utilizador,  e, numa componente mais social, partilhar informação e fotografias sobre os treinos, assim como visualizar estas mesmas partilhas por parte de outros utilizadores da plataforma.
+
+\subsubsection{\emph{Endomondo Sports Tracker}}
+
+Desenvolvida pela \textit{Endomondo}, permite também fazer o \textit{tracking} de um atleta em vários desportos, não sendo específico para a corrida, mas também para, por exemplo, ciclismo e caminhada.
+
+Tem como principais características a possibilidade de escolher de entre 3 programas de treino, ou criar um personalizado, e ter \textit{feedback} de um "treinador áudio", a possibilidade de se superar a si próprio, estabelecendo um treino prévio como objectivo, a visualização de gráficos com tempos parciais, frequência cardíaca, velocidade e altitude ao longo dos exercícios, a partilha informações do treino nas redes sociais e, na versão mais recente da aplicação, correr contra o tempo de um amigo ou até competir numa rota específica e tentar superar o "campeão" dela.
+
+\section{Requisitos do Utilizador}\label{sec:application}
+
+Para o uso da plataforma, qualquer utilizador necessita de ter um email válido, para que se possa registar. Após o registo estar concluído, o utilizador tem acesso a uma série de funcionalidades. Nesta arquitectura do \textit{JogginGo!} existem três níveis de utilizadores.
+
+\begin{itemize}
+\item {Utilizador sem login} -- Um utilizador que não tenho feito o \textit{login} deve poder, se tiver um email válido, criar o seu próprio registo, ou, no caso de já ter registo, fazer \textit{login} na plataforma.
+\item {Utilizador com login} -- Este tipo de utilizador é o utilizador final, ou seja, o cliente alvo para o \textit{JogginGo!}. Este tipo de utilizador, para além das acções básicas, transversais aos tipos de utilizador que se seguem, como por exemplo fazer login, logout, ver o seu perfil, etc., deve poder fazer as suas próprias corridas, competir em corridas pré-definidas e sugerir que alguma(s) da(s) sua(s) corrida(s) passem a pré-definidas, pertencentes à funcionalidade \textit{Test your limits}.
+\item{Moderador} -- Os moderadores têm a função de garantir o bom funcionamento da plataforma. Para isso, o moderador deve poder prestar auxílio aos utilizadores na utilização do sistema, reportar para o administrador algum problema que não consiga resolver, aprovar, ou não, o pedido de um utilizador para que a sua corrida seja tida em conta como pertencente à funcionalidade \textit{"Test your limits"}. Para tal, o moderador deve avaliar alguns factores, nomeadamente a dificuldade do percurso ou a área involvente (se há ou não alguma corrida pré-definida nas proximidades, se o percurso é seguro, entre outros).
+\item{Administrador} -- O Administrador existe para actuar ou resolver algum conflito que saia da área de acção do moderador. O administrador deve poder banir um utilizador, apagar alguma corrida, introduzir uma corrida pré-definida, promover utilizadores a moderadores, despromover moderadores a utilizadores, entre outras funções que garantam o bom funcionamento da aplicação.
+\end{itemize}
+
+\section{Arquitectura da solução}
+Tal como temos vindo a mostrar ao longo do desenvolvimento do projecto, um dos principais problemas é armazenamento e estruturação dos dados, para que sejam facilmenumte interpretáveis. Para responder a este problema, optámos por utilizar uma linguagem de marcação (JSON) como base para a estruturação dos dados. No entanto, cada documento JSON, que contém a informação de cada corrida, tem que guardar dados relativos ao utilizador, como o seu id, e dados da própria localização da corrida. De seguida, apresentamos a nossa solução para este problema.
+
+\begin{lstlisting}
+{
+"approved": false,
+"city": "Porto",
+"country": "Portugal",
+"name": "Trilho da Boavista"
+"private": true,
+"user_id": 1
+"initial_time": "2013:1:1:20:15:1:986",
+"final_time": "2013:1:1:20:47:34:074",
+"points":[
+   {"latitude": "41.157671",
+   "longitude": "-8.627787"},
+   "latitude": "41.158818",
+    longitude": "-8.628495"},
+   {"latitude": "41.158725",
+   "longitude": "-8.62982"},
+   {"latitude": "41.157898",
+   "longitude": "-8.63034"},
+   {"latitude": "41.157009",
+   "longitude": "-8.62958"},
+   {"latitude": "41.15734",
+   "longitude": "-8.62571"},
+   {"latitude": "41.15709",
+   "longitude": "-8.62410"},
+   {"latitude": "41.156896",
+   "longitude": "-8.62305"},
+   {"latitude": "41.156702",
+   "longitude": "-8.6218",
+   {"latitude": "41.156492",
+   "longitude": "-8.62077"} ]
+}
+\end{lstlisting}
+
+Passando a explicar, este documento é um exemplo de uma representação de um percurso feito por um utilizador, neste caso, o utilizador com o \textit{user\_id} igual a 1. Há vários campos que descodificamos facilmente o seu significado, como \textit{city}, que representa a cidade onde foi feita a corrida, o \textit{name}, que é o nome que o utilizador deu à sua corrida, ou mesmo os campos referentes ao tempo, que tem tempo inicial e final, com o formato "ano:mês:dia:hora:minuto:segundo:milésimo". No entanto, viremos a nossa atenção para os campos \textit{approved} e \textit{private}, com o valor \textit{false} e \textit{true} respectivamente. Por defeito, qualquer corrida criada por um utilizador tem o valor tem esses valores para os campos referidos anteriormente. Isto foi uma implementação para diferenciar os trilhos que são privados, os que são privados à espera de aprovação para serem públicos, e os públicos. Ou seja, quando um user cria um trilho, \textit{approved} e \textit{private} tomam os valores \textit{false} e \textit{true}, respectivamente. Após isso, o utilizador pode pretender que o seu trilho seja passado para a funcionalidade \textit{Test you limits}. Assim, \textit{private} passa a valer \textit{true}. No entanto, \textit{approved} continua com o valor booleano para falso. Isto porque esse trilho ainda necessida de aprovação de um moderador para que passe a público. Se for aprovado, \textit{approved} passa a \textit{true} e o trilho passa a ser público. Caso contrário \textit{approved} mantém o valor \textit{false}, e \textit{private} é alterado para \textit{true}, exactamente igual ao momento da sua criação.
+
+Outra particularidade deste documento JSON é a existência de um um \textit{array} de pontos. Cada posição do \textit{array} é um objecto JSON que contém a latitude e a longitude de cada ponto recolhido pelo dispositivo móvel.
+Este documento JSON visa resolver o problema de estruturação da informação a ser trocada entre o dispositivo móvel e o \textit{webservice}. 
+
+\section{Trabalho desenvolvido}\label{sec:trabalhodesenvolvido}
+Dadas as especificidades do projecto, foi necessária a implementação de dois módulos distintos que passamos a explicar.
+
+\subsection{Aplicação Android}
+
+É a aplicação Android que faz a recolha dos dados GPS da posição por onde o atleta passa. Para além disto, também é a sua responsabilidade guardar esses dados, de maneira que seja possível ao utilizador enviar esses dados para o \textit{webservice} assim que tenha disponível uma ligação à internet. Para além disso, e após concluir uma corrida, a aplicação Android também permite que o atleta visualize num mapa do GoogleMaps os pontos recorridos, assim como a velocidade média e a distância total percorrida, dando assim um plano geral da corrida. 
+Relativamente à sincronização com o \textit{webservice}, foi necessária a implementação de um módulo OAuth para tratar da autenticação do utilizador no dispositivo móvel. Após essa autenticação, os guardados numa base de dados interna SQLite são tratados, e gerado um documento JSON com o \textit{template} referido na secção anterior, e enviado para o servidor.
+
+\subsection{Webservice}
+
+É a plataforma online que faz a ponte entre o sistema Android e o utilizador. Apesar da sua interface não estar devidamente cuidada, devido ao facto de ter sido dada mais ênfase às funcionalidades do que à usabilidade, responde às necessidades propostas. Após feito o \textit{login}, o utilizador pode visualizar um mapa, recorrendo à \emph{API Google Maps}, com uma lista de percursos feitos por si. Para além disso, poderá também visualizar o tempo total do percurso.
+Para além destas funcionalidades de \textit{frontend}, o \textit{webservice} é responsável por receber o documento JSON com o percurso de um determinado atleta, pelo seu tratamento e respectivo armazenamento. 
+
+
+\section{Conclusões}\label{sec:conclusions}
+
+Neste artigo abordou-se o desenvolvimento de uma aplicação que permita a monitorização de um \textit{jogger} ao longo de um percurso. Aliado à sua vertente social, esta plataforma permite fazer a ponte entre a individualidade de fazer \textit{jogging} , com uma monitorização completa do percurso, assim como alguns detalhes, como por exemplo a velocidade média e a distância total.
+Posto isto, resolvemos dividir o desenvolvimento em três fases distintas:
+
+\begin{itemize}
+\item \textbf{Recolha de requisitos} -- Nesta etapa foi feito um levantamento de todos os requisitos necessários para a correcta implementação desta aplicação. Foi feito um estudo de todas as tecnologias existentes a fim de escolher aquela que melhor preenchesse o requisitos da aplicação.
+\item \textbf{Recolha dos dados e solução do problema} -- Nesta fase, que foi das que mereceu mais atenção da nossa parte, foi definido um modelo JSON final para resolver o problema de estruturação de informação e da sua respectiva transferência entre dispositivo móvel e o \textit{webservice}. A recolha dos dados é em tempo real, sempre que o utilizador estiver a correr e pretenda monitorizar o seu percurso. Ressalvamos o facto de o \emph{JogginGo!} não utilizar nenhum \textit{dataset} de dados, mas sim, usar a sua aplicação móvel para a recolha dos próprios elementos.
+\item \textbf{Análise dos dados e desenvolvimento da plataforma}  -- Nesta terceira etapa foi feita a análise dos documentos JSON recebidos no \textit{webservice} assim como o desenvolvimento das plataformas para que pudessem ser usadas pelo utilizador final.
+\end{itemize}
+
+No fim destas três etapas, pretendemos ter uma plataforma pronta a usar em qualquer parte do Mundo, usando documentos JSON como base para a troca de informação entre o \textit{webservice} e os dispositivos móveis.
+
+
+\nocite{*}
+%% auto bibliographic list 
+\renewcommand{\bibname}{Referências}
+% uses bibtex file
+%\bibliographystyle{alpha-pt}
+%\bibliographystyle{alpha}
+\bibliographystyle{unsrt-pt}
+%\bibliographystyle{unsrt}
+\bibliography{artigo}{}
+
+\end{document}
+
+
