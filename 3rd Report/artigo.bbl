@@ -1,0 +1,42 @@
+\begin{thebibliography}{1}
+
+\bibitem{W3C}
+{W3C} {World Wide Web Consortium}.
+\newblock {XML Tutorial}.
+\newblock \url{http://www.w3schools.com/xml/}.
+
+\bibitem{WIKI}
+Wikipedia.
+\newblock {XML, What is it?}
+\newblock \url{http://en.wikipedia.org/wiki/XML}.
+
+\bibitem{gmaps4rails}
+Benjamin Roth.
+\newblock {Google Maps for Rails}.
+\newblock \url{https://github.com/apneadiving/Google-Maps-for-Rails }.
+
+\bibitem{gmapsapi}
+Google.
+\newblock {Google Maps API}.
+\newblock \url{https://developers.google.com/maps/}.
+
+\bibitem{howtoactionbar}
+Xavi Rigau.
+\newblock {HowTo: ActionBarSherlock + MapFragment + ListFragment}.
+\newblock
+  \url{http://xrigau.wordpress.com/2012/03/22/howto-actionbarsherlock-mapfragm%
+ent-listfragment/}.
+
+\bibitem{gpstutorial}
+Pelle Braendgaard.
+\newblock {Android GPS, Location Manager Tutorial}.
+\newblock
+  \url{http://www.androidhive.info/2012/07/android-gps-location-manager-tutori%
+al/}.
+
+\bibitem{oauth}
+OAuth.
+\newblock {OAuth 2.0}.
+\newblock \url{http://oauth.net/2/}.
+
+\end{thebibliography}
