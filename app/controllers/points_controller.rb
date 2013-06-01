@@ -1,3 +1,4 @@
+# encoding: UTF-8
 class PointsController < ApplicationController
   before_filter :authorize, only: [:show, :edit, :update, :index, :new]
   before_filter :already_signed, only:[:new, :create]
