@@ -1,5 +1,7 @@
 Joggingo::Application.routes.draw do
 
+  mount_opro_oauth
+
   resources :points
   resources :timings
   resources :tracks

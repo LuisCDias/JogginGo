@@ -5,6 +5,7 @@ gem 'bcrypt-ruby'
 gem 'bootstrap-sass', '~> 2.3.0.1'
 gem 'gmaps4rails'
 gem 'geocoder'
+gem 'opro'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
