@@ -1,6 +1,6 @@
 # encoding: UTF-8
 class UsersController < ApplicationController
-	before_filter :authorize, only: [:show, :edit, :update]
+	before_filter :authorize, only: [:show, :edit, :update, :tracks]
 	before_filter :signed_user, only: [:edit, :update]
 	before_filter :already_signed, only:[:new, :create]
 	before_filter :administration, only: [:destroy]
