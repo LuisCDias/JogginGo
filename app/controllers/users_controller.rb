@@ -83,7 +83,7 @@ class UsersController < ApplicationController
 		@user = !params[:id].nil? ? User.find(params[:id]) : current_user
 		
 		respond_to do |format|
-      		format.json { render json: @user.tracks }
+      		format.json { render json: @user.tracks.reverse }
     	end
 	end
 
