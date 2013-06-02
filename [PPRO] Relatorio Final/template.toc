@@ -13,7 +13,6 @@
 \contentsline {section}{\numberline {5}Conclus\IeC {\~a}o}{12}
 \contentsline {section}{\numberline {6}Melhoramentos}{12}
 \contentsline {section}{\numberline {7}Bibliografia}{12}
-\contentsline {subsection}{\numberline {7.1}Publica\IeC {\c c}\IeC {\~o}es}{12}
-\contentsline {subsection}{\numberline {7.2}URLs}{12}
-\contentsline {section}{\numberline {A}Ap\IeC {\^e}ndice}{14}
-\contentsline {subsection}{\numberline {A.1}Manual de Utiliza\IeC {\c c}\IeC {\~a}o}{14}
+\contentsline {subsection}{\numberline {7.1}URLs}{12}
+\contentsline {section}{\numberline {A}Ap\IeC {\^e}ndice}{13}
+\contentsline {subsection}{\numberline {A.1}Manual de Utiliza\IeC {\c c}\IeC {\~a}o}{13}
