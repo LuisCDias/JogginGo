@@ -82,11 +82,9 @@ class UsersController < ApplicationController
 		
 		@user = !params[:id].nil? ? User.find(params[:id]) : current_user
 		
-		if !@user.nil?
-			respond_to do |format|
-	      		format.json { render json: @user.tracks }
-	    	end
-	    end
+		respond_to do |format|
+      		format.json { render json: @user.tracks }
+    	end
 	end
 
 	private 
