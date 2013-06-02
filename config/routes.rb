@@ -10,7 +10,7 @@ Joggingo::Application.routes.draw do
   
   root :to => "home#index"
 
-  get '/profile/tracks', :controller => 'users', :action => 'tracks'
+  get '/users/:id/tracks', :controller => 'users', :action => 'tracks'
   #match '/signup', to: 'users#new'
   match 'signup' => 'users#new', :as => :signup, :via => 'get'
   match 'signup' => 'users#create', :as => :signup, :via => 'post'
