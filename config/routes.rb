@@ -10,7 +10,7 @@ Joggingo::Application.routes.draw do
   
   root :to => "home#index"
 
-
+  get '/profile/tracks', :controller => 'users', :action => 'tracks'
   #match '/signup', to: 'users#new'
   match 'signup' => 'users#new', :as => :signup, :via => 'get'
   match 'signup' => 'users#create', :as => :signup, :via => 'post'
@@ -19,6 +19,7 @@ Joggingo::Application.routes.draw do
   match 'signout' => 'sessions#destroy', via: :delete
 
   match '/profile', to: 'users#show'
+  match '/profile/tracks', to: 'users#tracks'
   match '/settings', to: 'users#edit'
 
   post '/mobile', to: 'tracks#create', :as => "mobile"

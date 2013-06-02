@@ -78,6 +78,15 @@ class UsersController < ApplicationController
 		redirect_to users_path 
 	end
 
+	def tracks
+		
+		@user = !params[:id].nil? ? User.find(params[:id]) : current_user
+		
+		respond_to do |format|
+      		format.json { render json: @user.tracks }
+    	end
+	end
+
 	private 
 
 		def administration
