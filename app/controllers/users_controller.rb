@@ -1,6 +1,6 @@
 # encoding: UTF-8
 class UsersController < ApplicationController
-	before_filter :authorize, only: [:show, :edit, :update, :tracks]
+	before_filter :authorize, only: [:show, :edit, :update]
 	before_filter :signed_user, only: [:edit, :update]
 	before_filter :already_signed, only:[:new, :create]
 	before_filter :administration, only: [:destroy]
@@ -82,9 +82,11 @@ class UsersController < ApplicationController
 		
 		@user = !params[:id].nil? ? User.find(params[:id]) : current_user
 		
-		respond_to do |format|
-      		format.json { render json: @user.tracks }
-    	end
+		if !@user.nil?
+			respond_to do |format|
+	      		format.json { render json: @user.tracks }
+	    	end
+	    end
 	end
 
 	private 
