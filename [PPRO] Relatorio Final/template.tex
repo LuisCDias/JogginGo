@@ -56,7 +56,7 @@ Este projecto insere-se no âmbito da unidade curricular de Paradigmas de Progra
 
 \subsection{Objectivo}
 
-O objectivo deste trabalho era criar uma plataforma \textit{mobile} de controlo de corridas de um determinado atleta. Do ponto de vista de utilização, foi necessário criar uma plataforma que permitisse a qualquer utilizador registar-se e visualizar todas suas corridas. Assim, desenvolvemos também um \textit{webservice} que preenchesse essa lacuna. Para além disso, é o \textit{webservice} o responsável por receber, tratar e armazenar os dados enviados pelo dispositivo móvel.
+O objectivo deste trabalho foi criar uma plataforma \textit{mobile} de controlo de corridas de um determinado atleta. Do ponto de vista de utilização, foi necessário criar uma plataforma que permitisse a qualquer utilizador registar-se e visualizar todas suas corridas. Assim, desenvolvemos também um \textit{webservice} que desempenhasse essa tarefa. Para além disso, é o \textit{webservice} o responsável por receber, tratar e armazenar os dados enviados pelo dispositivo móvel.
 
 \subsection{Motivação}
 
@@ -148,6 +148,164 @@ Foi utilizado Javascript principalmente para uma melhor interacção do utilizad
 
 \section{Implementação}
 
+Na implementação da aplicação foi necessário proceder a alguns mecanismos que permitissem a comunicação e controlo de dados entre das duas componentes principais, \textit{webservice} e aplicação Android. 
+
+Para um corredor, é importante poder manter armazenadas no seu telemóvel as corridas realizadas até que seja possível a sincronização com a plataforma. Para isso, foi desenvolvido um sistema de autenticação OAuth 2.0 para que esta troca de informação fosse seguro. 
+
+Os principais mecanismos de troca de informação são, assim, apresentados abaixo. Para a autenticação, é enviado um pedido para a criação de um \textit{access token} no servidor, a partir da aplicação móvel Android:
+
+\begin{verbatim}
+	
+HttpPost httppost = new HttpPost(OAuth2ClientCredentials.SCOPE+"oauth/token");
+							
+							
+							List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
+
+							nameValuePairs.add(new BasicNameValuePair("client_id", OAuth2ClientCredentials.CLIENT_ID));
+							nameValuePairs.add(new BasicNameValuePair("client_secret", OAuth2ClientCredentials.CLIENT_SECRET));
+							nameValuePairs.add(new BasicNameValuePair("code", code));
+							//nameValuePairs.add(new BasicNameValuePair("grant_type", "authorization_code"));
+							httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+
+
+ResponseHandler<String> responseHandler=new BasicResponseHandler();
+							JSONObject response = new JSONObject(new DefaultHttpClient().execute(httppost, responseHandler));
+
+\end{verbatim}
+
+Isto vai possibilitar a criação do \textit{access token} que permite ao utilizador realizar pedidos que necessitam de autenticação. Na plataforma, o pedido, depois de processado pelo mecanismo de OAuth, devolve as informações pretendidas através do \textit{render} das informações em formato JSON, em Ruby:
+
+\begin{verbatim}
+def show
+...
+	respond_to do |format|
+      		format.html # index.html.erb
+      		format.json { render json: @user }
+      		format.xml { render xml: @user }
+    	end
+...
+end
+\end{verbatim}
+
+Recebendo esta informação, é possível obter os dados do utilizador para futura utilização. Com esta autenticação, torna-se possível obter, por exemplo, as corridas realizadas por um utilizador, assim como fazer a sincronização no servidor de corridas recentemente realizadas.
+
+Começando pela última, com a sincronização de novas corridas utilizando Java com Android:
+
+\begin{verbatim}
+
+HttpClient httpclient = new DefaultHttpClient();
+		HttpPost httppost = new HttpPost(URL);
+
+...
+JSONObject json = new JSONObject();
+json.put("user_id", user_id);
+				json.put("approved", (t.isApproved() == 1? true:false));
+				json.put("name", t.getName());
+...
+
+response = httpclient.execute(httppost);
+if(response.getStatusLine().getStatusCode() == 200){
+					db.deleteTrack(t);
+				}
+...
+\end{verbatim}
+
+Do lado do servidor, onde a informação é processada, em Ruby (on Rails):
+
+\begin{verbatim}
+
+def create
+    
+    initial_time = params[:initial_time]
+    m=initial_time.split(":")
+    year = m[0].to_i
+    month = m[1].to_i
+    day = m[2].to_i
+    hour = m[3].to_i
+    minute = m[4].to_i
+    second = m[5].to_i
+    mil = m[6].to_i
+
+    initial = Time.local(year,month,day,hour,minute,second,mil)
+
+    final_time = params[:final_time]
+    m1=final_time.split(":")
+    year = m1[0].to_i
+    month = m1[1].to_i
+    day = m1[2].to_i
+    hour = m1[3].to_i
+    minute = m1[4].to_i
+    second = m1[5].to_i
+    mil = m1[6].to_i
+    
+    final = Time.local(year,month,day,hour,minute,second,mil)
+
+    delta = final-initial
+
+    c = Time.at(delta).gmtime.strftime('%R:%S:%L')
+
+    @track = Track.new(name:params["name"], city:params["city"], 
+      country: params["country"], user_id:params["user_id"],
+      private: params["private"], approved: params["approved"])
+    @user = User.find(params["user_id"])
+
+    @track.points.build(params["points"])
+    @track.timings.build(initial_time:initial,final_time:final, global_time:
+      c)
+
+    respond_to do |format|
+      if @track.save
+        format.html { redirect_to @user, notice: 'Track was successfully created.' }
+        format.json { render json: @track, status: :created, location: @track }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @track.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+\end{verbatim}
+
+Para uma visualização de um perfil, com todas as corridas realizadas pelo utilizador autenticado:
+
+\begin{verbatim}
+
+HttpClient httpclient = new DefaultHttpClient();
+HttpGet request = new HttpGet((String)urls[0]);
+            ResponseHandler<String> handler = new BasicResponseHandler();
+
+...
+
+public void onResultReceived(Object... results) {
+
+					JSONArray tracks = (JSONArray) results[0];
+					
+JSONObject track = tracks.getJSONObject(i);
+							
+							ids.add(track.getString("id"));
+							names.add(track.getString("name"));
+
+...
+
+\end{verbatim}
+
+O pedido é enviado para a plataforma, que responde com os dados estruturados em JSON:
+
+\begin{verbatim}
+
+def tracks
+		
+		@user = !params[:id].nil? ? User.find(params[:id]) : current_user
+		
+		respond_to do |format|
+      		format.json { render json: @user.tracks }
+    	end
+	end
+
+\end{verbatim}
+
+
 \subsection{Ambiente de desenvolvimento}
 
 Para os diferentes módulos, foram usadas diferentes tecnologias e ambientes.
@@ -156,7 +314,7 @@ O \textit{Webservice} foi desenvolvido utilizando a tecnologia Ruby on Rails, co
 
 Relativamente ao terminal móvel, foi desenvolvida em Java (Android), recorrendo ao IDE Eclipse. 
 
-Ambos os modelos foram desenvolvidos em computadores portáteis utilizando o sistema operativo Linux (Ubuntu).
+Ambos os modelos foram desenvolvidos utilizando computadores portáteis utilizando o sistema operativo Linux (distribuição Ubuntu).
 
 
 \newpage
